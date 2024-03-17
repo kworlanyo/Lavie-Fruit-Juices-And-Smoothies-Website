@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 function ProductCard({ juice, smoothie }) {
   return (
-    <div>
+    <div className="product-card">
       <Link to={juice?.name ? `/${juice.name}` : smoothie?.name ? `/${smoothie.name}` : ""}>
-        <img src={juice?.image || smoothie?.image} alt="" />
+        <div className="image-container">
+          <img src={juice?.image || smoothie?.image} alt="" />
+        </div>
       </Link>
-      <h3>{juice?.name || smoothie?.name}</h3>
-      <p>{juice?.ingredients || smoothie?.ingredients}</p>
-      <p>{juice?.volume || smoothie?.volume}</p>
-      <p>{juice?.price || smoothie?.price}</p>
+      <div className="details">
+        <h3>{juice?.name || smoothie?.name}</h3>
+        <p>Ingredients: {juice?.ingredients || smoothie?.ingredients}</p>
+        {/* <p>{juice?.volume || smoothie?.volume}</p> */}
+        <p>₵{juice?.price || smoothie?.price}.00</p>
+      </div>
       <button>Add</button>
     </div>
   );

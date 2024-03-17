@@ -11,6 +11,12 @@ import mangoAndYoghurtSmoothie from "./src/assets/Mango-and-yoghurt-smoothie.svg
 import pawpawAndMilkSmoothie from "./src/assets/Pawpaw-and-milk-smoothie.svg";
 import bananaAvocadoAndYoghurtSmoothie from "./src/assets/Banana-avocado-and-yoghurt-smoothie.svg";
 import sweetAppleMangoAndYoghurtSmoothie from "./src/assets/Sweet-apple-mango-and-yoghurt-smoothie.svg";
+import offer1 from "./src/assets/offer1.svg";
+import offer2 from "./src/assets/offer2.svg";
+import offer3 from "./src/assets/offer3.svg";
+import customer1 from "./src/assets/Ellipse1.svg";
+import customer2 from "./src/assets/Ellipse2.svg";
+import customer3 from "./src/assets/Ellipse3.svg";
 
 export const juices = [
   {
@@ -135,5 +141,47 @@ export const smoothies = [
       "Quench your thirst with our delightful sweet apple, mango and yoghurt smoothie! Made from 100% pure and organic fruits. Say goodbye to additives and preservatives, and hello to a refreshing drink that's as friendly to your taste buds as it is to your body.",
     volume: "5 litres",
     price: 100,
+  },
+];
+
+export const offer = [
+  {
+    image: offer1,
+    header: "Prompt Delivery",
+    text: "We deliver the juices and smoothies on time and on schedule without delay.",
+  },
+  {
+    image: offer2,
+    header: "Fresh Fruits",
+    text: "The fruits we use for the juices and smoothies are fresh and healthy.",
+  },
+  {
+    image: offer3,
+    header: "Organic And Safe",
+    text: "The processing of the fruits are safe and organic.",
+  },
+];
+
+export const testimonials = [
+  {
+    image: customer1,
+    name: "Akosua Dankwa",
+    timePosted: "2 weeks ago",
+    comments:
+      "I am an event planner, and I can testify that Lavie Juices and Smoothies never disappoint. They always deliver on time and they are so professional. I will always recommend them.",
+  },
+  {
+    image: customer2,
+    name: "James Mensah",
+    timePosted: "1 month ago",
+    comments:
+      "Lavie is one of the best. I was organizing an event and needed juice and smoothies. Lavie produced one of the best smoothies and the people at the event enjoyed them. Great services and personnel at Lavie.",
+  },
+  {
+    image: customer3,
+    name: "Samuel Mawuli",
+    timePosted: "2 months ago",
+    comments:
+      "Lavie always delivers. I have been a long time customer and they have never disappointed me anytime I need juice and smoothies for events. I love Lavie!!",
   },
 ];

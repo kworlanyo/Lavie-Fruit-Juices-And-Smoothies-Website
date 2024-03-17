@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+
 import { useParams } from "react-router-dom";
 import ProductCard from "./ProductCard";
+import Counter from "./Counter";
 
 function ProductDetails({ juices, smoothies }) {
   const { name } = useParams();
-  const [counter, setCounter] = useState(1);
 
   const juiceToShowDetail = juices.find((juice) => juice.name === name);
   const smoothieToShowDetail = smoothies.find((smoothie) => smoothie.name === name);
@@ -22,11 +22,7 @@ function ProductDetails({ juices, smoothies }) {
             <p>{juiceToShowDetail?.volume || smoothieToShowDetail?.volume}</p>
           </div>
           <h3>Choose quantity</h3>
-          <div>
-            <button onClick={() => setCounter(counter > 1 ? counter - 1 : counter)}>-</button>
-            <p>{counter}</p>
-            <button onClick={() => setCounter(counter + 1)}>+</button>
-          </div>
+          <Counter />
           <button>Add to cart</button>
         </div>
       </div>
