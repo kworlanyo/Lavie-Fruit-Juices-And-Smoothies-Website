@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
 
 function Navigation() {
+  const { cart } = useContext(CartContext);
   return (
     <header>
       <nav className="navbar">
@@ -19,7 +22,7 @@ function Navigation() {
             <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <NavLink to="/cart">Cart</NavLink>
+            <NavLink to="/cart">Cart {cart.length > 0 && <span>{cart.length}</span>}</NavLink>
           </li>
         </ul>
       </nav>

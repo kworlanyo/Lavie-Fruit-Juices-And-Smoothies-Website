@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-function ProductCard({ juice, smoothie }) {
+function ProductCard({ juice, smoothie, handleAddToCart }) {
   return (
     <div className="product-card">
       <Link to={juice?.name ? `/${juice.name}` : smoothie?.name ? `/${smoothie.name}` : ""}>
@@ -12,10 +12,9 @@ function ProductCard({ juice, smoothie }) {
       <div className="details">
         <h3>{juice?.name || smoothie?.name}</h3>
         <p>Ingredients: {juice?.ingredients || smoothie?.ingredients}</p>
-        {/* <p>{juice?.volume || smoothie?.volume}</p> */}
         <p>₵{juice?.price || smoothie?.price}.00</p>
       </div>
-      <button>Add</button>
+      <button onClick={() => handleAddToCart(juice ? juice.id : smoothie.id)}>Add</button>
     </div>
   );
 }

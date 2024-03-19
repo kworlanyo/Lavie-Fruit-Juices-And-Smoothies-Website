@@ -1,12 +1,16 @@
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function Shop() {
   return (
-    <div>
-      <h2>Products</h2>
-      <Link to="shop/juices">Juices</Link>
-      <Link to="shop/smoothies">Smoothies</Link>
-      <Outlet />
+    <div className="shop-section">
+      <div className="wrapper">
+        <h2>Products</h2>
+        <div className="links">
+          <NavLink to="shop/juices">Juices</NavLink>
+          <NavLink to="shop/smoothies">Smoothies</NavLink>
+        </div>
+        <Outlet />
+      </div>
     </div>
   );
 }
