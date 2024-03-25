@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import OfferItem from "./OfferItem";
-import { DataContext } from "../contexts/DataContext";
+import OfferItem from "../OfferItem/OfferItem";
+import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
+import "./Offer.css";
 
 function Offer() {
   const { offer } = useContext(DataContext);

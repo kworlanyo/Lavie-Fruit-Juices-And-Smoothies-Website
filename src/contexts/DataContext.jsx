@@ -8,7 +8,7 @@ const initialState = {
   // counter: 1,
   cart: JSON.parse(localStorage.getItem("products")) || [],
   termsAgreed: false,
-  // showModal: false,
+  showModal: false,
 };
 
 function reducer(currentState, action) {

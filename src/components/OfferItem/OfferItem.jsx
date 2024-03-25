@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import "./OfferItem.css";
+
 function OfferItem({ offerItem }) {
   return (
     <div className="offerItem-container">

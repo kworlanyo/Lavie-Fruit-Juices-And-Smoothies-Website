@@ -1,0 +1,22 @@
+.cart-page td {
+  text-align: center;
+}
+
+.cart-page .product-image-and-name {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 8rem;
+  margin: 0 auto;
+}
+
+.counter button {
+  padding: 0.6rem;
+}

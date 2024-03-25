@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useParams } from "react-router-dom";
-import ProductCard from "./ProductCard";
-import Button from "./Button";
+import ProductCard from "../ProductCard/ProductCard";
+import Button from "../Button/Button";
 import { useContext } from "react";
-import { DataContext } from "../contexts/DataContext";
+import { DataContext } from "../../contexts/DataContext";
+import "./ProductDetails.css";
 
 function ProductDetails() {
   const { name } = useParams();

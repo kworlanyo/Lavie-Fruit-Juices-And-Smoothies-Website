@@ -1,0 +1,27 @@
+.shop-section {
+  min-height: 30rem;
+  padding: 5rem 0;
+}
+
+.shop-section .links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto 3rem;
+  border: 1px solid green;
+  border-radius: 3rem;
+}
+
+.shop-section .links a {
+  text-decoration: none;
+  padding: 1rem;
+  transition: all 0.5s;
+}
+
+.shop-section .links a.active {
+  border-radius: 3rem;
+  background-color: green;
+  color: white;
+}

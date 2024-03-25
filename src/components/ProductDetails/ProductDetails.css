@@ -1,0 +1,28 @@
+.product-details-container {
+  display: flex;
+  margin-bottom: 8rem;
+}
+
+.product-details-container .details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.terms-and-conditions-container {
+  margin-bottom: 8rem;
+}
+
+.terms-and-conditions-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.customers-viewed-container div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+
+}

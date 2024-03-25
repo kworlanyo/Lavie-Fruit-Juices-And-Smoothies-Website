@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import "./TestimonialsCard.css";
+
 function TestimonialsCard({ testimonial }) {
   return (
     <div className="testimonial-card">

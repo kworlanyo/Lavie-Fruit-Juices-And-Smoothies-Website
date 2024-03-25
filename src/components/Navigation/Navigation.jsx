@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { DataContext } from "../contexts/DataContext";
-import Logo from "../assets/Logo.svg";
+import { DataContext } from "../../contexts/DataContext";
+import Logo from "../../assets/Logo.svg";
+import "./Navigation.css";
 
 function Navigation() {
   const {

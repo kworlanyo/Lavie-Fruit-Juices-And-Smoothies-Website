@@ -1,0 +1,23 @@
+.cart-page {
+  min-height: 30rem;
+  padding: 5rem 0;
+}
+
+.cart-page .empty-state {
+  text-align: center;
+}
+
+.cart-page table {
+  width: 100%;
+  border-collapse: collapse;
+  gap: 2rem;
+}
+
+.cart-page tr:not(thead > tr) {
+  box-shadow: 0px 0px 10px rgba(161, 158, 158, 0.425);
+  margin-bottom: 2rem;
+}
+
+.cart-page th {
+  padding: 2rem;
+}

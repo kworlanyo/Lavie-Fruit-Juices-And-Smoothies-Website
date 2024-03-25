@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { DataContext } from "../contexts/DataContext";
+import { DataContext } from "../../contexts/DataContext";
+import "./CartItem.css";
 
 /* eslint-disable react/prop-types */
 function CartItem({ item }) {

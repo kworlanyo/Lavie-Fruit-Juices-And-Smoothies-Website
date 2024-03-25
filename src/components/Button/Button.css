@@ -1,0 +1,18 @@
+.button {
+  padding: 1rem 2.4rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0.8rem;
+  border: none;
+  font-size: 1.6rem;
+  width: 28rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3F6919;
+}
+
+.button:active {
+  background-color: #0D2000;
+}

@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button";
-import CartItem from "../components/CartItem";
-import { DataContext } from "../contexts/DataContext";
+import Button from "../../components/Button/Button";
+import CartItem from "../../components/CartItem/CartItem";
+import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
+import "./Cart.css";
 
 function Cart() {
   const {

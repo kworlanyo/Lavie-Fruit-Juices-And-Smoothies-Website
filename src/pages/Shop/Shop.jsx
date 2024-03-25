@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import "./Shop.css";
 
 function Shop() {
   return (

@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import Button from "../components/Button";
-import Offer from "../components/Offer";
-import ProductCard from "../components/ProductCard";
-import Testimonials from "../components/Testimonials";
+import Button from "../../components/Button/Button";
+import Offer from "../../components/Offer/Offer";
+import ProductCard from "../../components/ProductCard/ProductCard";
+import Testimonials from "../../components/Testimonials/Testimonials";
 import { useNavigate } from "react-router-dom";
-import { DataContext } from "../contexts/DataContext";
+import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
+import "./Home.css";
 
 function Home() {
   const { juices } = useContext(DataContext);

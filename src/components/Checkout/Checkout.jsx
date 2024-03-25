@@ -1,5 +1,6 @@
-import { DataContext } from "../contexts/DataContext";
+import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
+import "./Checkout.css";
 // import Button from "./Button";
 
 function Checkout() {
@@ -18,7 +19,7 @@ function Checkout() {
             <form>
               <h2>Billing Details</h2>
               <label>
-                First Name
+                First Name*
                 <input type="text" name="firstName" required />
               </label>
               <label>

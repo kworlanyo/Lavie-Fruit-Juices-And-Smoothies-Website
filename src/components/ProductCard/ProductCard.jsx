@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { DataContext } from "../contexts/DataContext";
+import { DataContext } from "../../contexts/DataContext";
+import "./ProductCard.css";
+// import { Modal } from "react-responsive-modal";
 
 /* eslint-disable react/prop-types */
 function ProductCard({ juice, smoothie }) {
