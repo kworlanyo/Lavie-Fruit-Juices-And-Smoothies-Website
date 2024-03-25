@@ -19,27 +19,27 @@ function Checkout() {
               <h2>Billing Details</h2>
               <label>
                 First Name
-                <input type="text" name="firstName" />
+                <input type="text" name="firstName" required />
               </label>
               <label>
-                Last Name
-                <input type="text" name="lastName" />
+                Last Name*
+                <input type="text" name="lastName" required />
               </label>
               <label>
-                Town/City
-                <input type="text" name="town" />
+                Town/City*
+                <input type="text" name="town" required />
               </label>
               <label>
-                Address
-                <input type="text" name="address" />
+                Address*
+                <input type="text" name="address" required />
               </label>
               <label>
-                Phone Number
-                <input type="tel" name="phoneNumber" />
+                Phone Number*
+                <input type="tel" name="phoneNumber" required />
               </label>
               <label>
-                Email Address
-                <input type="email" name="email" />
+                Email Address*
+                <input type="email" name="email" required />
               </label>
               <h2>Choose Payment Method</h2>
               <div className="radio-button">
