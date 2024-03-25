@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../contexts/DataContext";
 
 /* eslint-disable react/prop-types */
-function ProductCard({ juice, smoothie, handleAddToCart }) {
+function ProductCard({ juice, smoothie }) {
+  const { dispatch } = useContext(DataContext);
   return (
     <div className="product-card">
-      <Link to={juice?.name ? `/${juice.name}` : smoothie?.name ? `/${smoothie.name}` : ""}>
+      <Link
+        to={
+          juice?.name
+            ? `/${juice.name}`
+            : smoothie?.name
+            ? `/${smoothie.name}`
+            : ""
+        }
+      >
         <div className="image-container">
           <img src={juice?.image || smoothie?.image} alt="" />
         </div>
@@ -14,7 +25,16 @@ function ProductCard({ juice, smoothie, handleAddToCart }) {
         <p>Ingredients: {juice?.ingredients || smoothie?.ingredients}</p>
         <p>₵{juice?.price || smoothie?.price}.00</p>
       </div>
-      <button onClick={() => handleAddToCart(juice ? juice.id : smoothie.id)}>Add</button>
+      <button
+        onClick={() =>
+          dispatch({
+            type: "ADD-TO-CART",
+            payload: { juice: juice?.id, smoothie: smoothie?.id },
+          })
+        }
+      >
+        Add
+      </button>
     </div>
   );
 }

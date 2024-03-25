@@ -1,15 +1,19 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { DataContext } from "../contexts/DataContext";
+import Logo from "../assets/Logo.svg";
 
 function Navigation() {
-  const { cart } = useContext(CartContext);
+  const {
+    state: { cart },
+  } = useContext(DataContext);
   return (
     <header>
       <nav className="navbar">
         <div>
-          <h2>Logo</h2>
-          {/* <img src="" alt="" /> */}
+          <NavLink to="/">
+            <img src={Logo} alt="logo" width={150} />
+          </NavLink>
         </div>
         <ul className="navbar-links">
           <li>
@@ -22,7 +26,9 @@ function Navigation() {
             <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <NavLink to="/cart">Cart {cart.length > 0 && <span>{cart.length}</span>}</NavLink>
+            <NavLink to="/cart">
+              Cart {cart.length > 0 && <span>{cart.length}</span>}
+            </NavLink>
           </li>
         </ul>
       </nav>

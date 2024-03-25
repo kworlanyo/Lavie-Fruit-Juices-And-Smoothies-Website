@@ -1,25 +1,15 @@
 /* eslint-disable react/prop-types */
 import ProductCard from "./ProductCard";
 import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { DataContext } from "../contexts/DataContext";
 
-function Smoothies({ smoothies }) {
-  const { cart, setCart } = useContext(CartContext);
-
-  function handleAddToCart(id) {
-    const itemToAdd = smoothies.find((juice) => juice.id === id);
-
-    if (!cart.includes(itemToAdd)) {
-      setCart([...cart, itemToAdd]);
-    } else {
-      alert("Item has been added to cart already");
-    }
-  }
+function Smoothies() {
+  const { smoothies } = useContext(DataContext);
 
   return (
     <div className="smoothies-container">
       {smoothies.map((smoothie) => (
-        <ProductCard key={smoothie.id} smoothie={smoothie} handleAddToCart={handleAddToCart} />
+        <ProductCard key={smoothie.id} smoothie={smoothie} />
       ))}
     </div>
   );

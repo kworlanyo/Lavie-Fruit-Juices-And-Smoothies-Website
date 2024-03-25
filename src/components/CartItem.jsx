@@ -1,16 +1,9 @@
-import Counter from "./Counter";
 import { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { DataContext } from "../contexts/DataContext";
 
 /* eslint-disable react/prop-types */
 function CartItem({ item }) {
-  const { cart, setCart } = useContext(CartContext);
-
-  function handleDelete(id) {
-    if (confirm("Are you sure you want to delete this item?")) {
-      setCart(cart.filter((item) => item.id !== id));
-    }
-  }
+  const { dispatch } = useContext(DataContext);
 
   return (
     <tr className="cart-item">
@@ -20,11 +13,26 @@ function CartItem({ item }) {
       </td>
       <td>₵{item.price}.00</td>
       <td>
-        <Counter />
+        <div className="counter">
+          <button
+            onClick={() => dispatch({ type: "DECREMENT", payload: item.id })}
+          >
+            -
+          </button>
+          <p>{item.quantity}</p>
+          <button
+            onClick={() => dispatch({ type: "INCREMENT", payload: item.id })}
+          >
+            +
+          </button>
+        </div>
       </td>
-      <td>100</td>
+      <td>₵{(item.price * item.quantity).toFixed(2)}</td>
       <td>
-        <button className="delete-button" onClick={() => handleDelete(item.id)}>
+        <button
+          className="delete-button"
+          onClick={() => dispatch({ type: "DELETE-ITEM", payload: item.id })}
+        >
           Delete
         </button>
       </td>

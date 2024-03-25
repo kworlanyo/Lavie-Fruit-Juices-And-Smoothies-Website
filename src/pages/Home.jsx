@@ -4,8 +4,11 @@ import Offer from "../components/Offer";
 import ProductCard from "../components/ProductCard";
 import Testimonials from "../components/Testimonials";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../contexts/DataContext";
+import { useContext } from "react";
 
-function Home({ juices, offer, testimonials }) {
+function Home() {
+  const { juices } = useContext(DataContext);
   const navigate = useNavigate();
 
   return (
@@ -13,7 +16,8 @@ function Home({ juices, offer, testimonials }) {
       <section className="hero-container">
         <h1>Enjoy quality juices and smoothies</h1>
         <p>
-          We offer 100% fresh and natural juices and smoothies specially made with your health and vitality in mind.
+          We offer 100% fresh and natural juices and smoothies specially made
+          with your health and vitality in mind.
         </p>
         {/* <button>Shop Now</button> */}
         <Button onClick={() => navigate("shop/juices")} content="Shop Now" />
@@ -21,7 +25,7 @@ function Home({ juices, offer, testimonials }) {
       <section className="offer-section">
         <div className="wrapper">
           <h2>What We Offer</h2>
-          <Offer offer={offer} />
+          <Offer />
         </div>
       </section>
       <section className="products-section">
@@ -37,7 +41,7 @@ function Home({ juices, offer, testimonials }) {
       <section className="testimonials-section">
         <div className="wrapper">
           <h2>What Clients Say About Us</h2>
-          <Testimonials testimonials={testimonials} />
+          <Testimonials />
         </div>
       </section>
       <section className="contact-us-section">
@@ -50,11 +54,20 @@ function Home({ juices, offer, testimonials }) {
             </label>
             <label>
               Email Address
-              <input type="email" name="email" placeholder="Enter your email address" />
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email address"
+              />
             </label>
             <label>
               Message
-              <textarea name="message" cols="30" rows="10" placeholder="Write your message here..." />
+              <textarea
+                name="message"
+                cols="30"
+                rows="10"
+                placeholder="Write your message here..."
+              />
             </label>
             <Button content="Submit" />
           </form>

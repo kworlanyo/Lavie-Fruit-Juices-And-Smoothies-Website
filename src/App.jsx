@@ -8,27 +8,27 @@ import PageNotFound from "./components/PageNotFound";
 import Juices from "./components/Juices";
 import Smoothies from "./components/Smoothies";
 import ProductDetails from "./components/ProductDetails";
-import { juices, smoothies, offer, testimonials } from "../data";
-import CartContextProvider from "./contexts/CartContext";
-// import { useState } from "react";
+import DataContextProvider from "./contexts/DataContext";
+import Checkout from "./components/Checkout";
 
 function App() {
   return (
-    <CartContextProvider>
+    <DataContextProvider>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home juices={juices} offer={offer} testimonials={testimonials} />} />
+          <Route index element={<Home />} />
           <Route element={<Shop />}>
-            <Route path="shop/juices" element={<Juices juices={juices} />} />
-            <Route path="shop/smoothies" element={<Smoothies smoothies={smoothies} />} />
-            <Route path=":name" element={<ProductDetails juices={juices} smoothies={smoothies} />} />
+            <Route path="shop/juices" element={<Juices />} />
+            <Route path="shop/smoothies" element={<Smoothies />} />
+            <Route path=":name" element={<ProductDetails />} />
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
-    </CartContextProvider>
+    </DataContextProvider>
   );
 }
 
