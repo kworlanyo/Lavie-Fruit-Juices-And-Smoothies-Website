@@ -1,6 +1,10 @@
 .product-details-container {
   display: flex;
   margin-bottom: 8rem;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  padding: 3rem;
+  background-color: white;
 }
 
 .product-details-container .details {
@@ -12,12 +16,18 @@
 
 .terms-and-conditions-container {
   margin-bottom: 8rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  padding: 3rem;
+  background-color: white;
 }
 
 .terms-and-conditions-container ul {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  font-size: 2rem;
+  /* margin-top: 2rem; */
+  padding: 2rem;
 }
 
 .customers-viewed-container div {

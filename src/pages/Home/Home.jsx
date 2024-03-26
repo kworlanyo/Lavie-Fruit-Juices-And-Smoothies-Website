@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 import "./Home.css";
+import contactImage from "../../assets/contact-image.svg";
 
 function Home() {
   const { juices } = useContext(DataContext);
@@ -15,13 +16,19 @@ function Home() {
   return (
     <div>
       <section className="hero-container">
-        <h1>Enjoy quality juices and smoothies</h1>
-        <p>
+        <h1 data-aos="zoom-out" data-aos-duration="2000">
+          Enjoy quality juices and smoothies
+        </h1>
+        <p data-aos="zoom-out" data-aos-duration="2000">
           We offer 100% fresh and natural juices and smoothies specially made
           with your health and vitality in mind.
         </p>
-        {/* <button>Shop Now</button> */}
-        <Button onClick={() => navigate("shop/juices")} content="Shop Now" />
+        <Button
+          data-aos="zoom-out"
+          data-aos-duration="2000"
+          onClick={() => navigate("shop/juices")}
+          content="Shop Now"
+        />
       </section>
       <section className="offer-section">
         <div className="wrapper">
@@ -48,30 +55,39 @@ function Home() {
       <section className="contact-us-section">
         <div className="wrapper">
           <h2>Contact Us</h2>
-          <form>
-            <label>
-              Name
-              <input type="text" name="name" placeholder="Enter your name" />
-            </label>
-            <label>
-              Email Address
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email address"
-              />
-            </label>
-            <label>
-              Message
-              <textarea
-                name="message"
-                cols="30"
-                rows="10"
-                placeholder="Write your message here..."
-              />
-            </label>
-            <Button content="Submit" />
-          </form>
+          <div className="form-and-image-container">
+            <form data-aos="fade-right" data-aos-duration="1000">
+              <label>
+                Name
+                <input type="text" name="name" placeholder="Enter your name" />
+              </label>
+              <label>
+                Email Address
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email address"
+                />
+              </label>
+              <label>
+                Message
+                <textarea
+                  name="message"
+                  cols="30"
+                  rows="10"
+                  placeholder="Write your message here..."
+                />
+              </label>
+              <Button content="Submit" />
+            </form>
+            <div
+              className="image-container"
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            >
+              <img src={contactImage} alt="image" />
+            </div>
+          </div>
         </div>
       </section>
     </div>

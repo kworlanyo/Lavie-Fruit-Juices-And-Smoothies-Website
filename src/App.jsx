@@ -8,9 +8,10 @@ import PageNotFound from "./components/PageNotFound/PageNotFound";
 import Juices from "./components/Juices/Juices";
 import Smoothies from "./components/Smoothies";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
-import DataContextProvider from "./contexts/DataContext";
 import Checkout from "./components/Checkout/Checkout";
 import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   // This code helps to go to the top of a page anytime its route is clicked
@@ -20,23 +21,26 @@ function App() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  useEffect(() => {
+    Aos.init();
+    Aos.refresh();
+  }, []);
+
   return (
-    <DataContextProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route element={<Shop />}>
-            <Route path="shop/juices" element={<Juices />} />
-            <Route path="shop/smoothies" element={<Smoothies />} />
-            <Route path=":name" element={<ProductDetails />} />
-          </Route>
-          <Route path="/about" element={<About />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="*" element={<PageNotFound />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route element={<Shop />}>
+          <Route path="shop/juices" element={<Juices />} />
+          <Route path="shop/smoothies" element={<Smoothies />} />
+          <Route path=":name" element={<ProductDetails />} />
         </Route>
-      </Routes>
-    </DataContextProvider>
+        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

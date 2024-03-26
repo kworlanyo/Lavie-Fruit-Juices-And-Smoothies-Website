@@ -1,26 +1,39 @@
 .hero-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   gap: 3rem;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 0 12rem;
+  background-image: linear-gradient(to right, rgb(255, 166, 0), rgba(255, 255, 255, 0)), url(../../assets/Hero1.svg);
+  background-repeat: no-repeat;
+  background-position: top 30px right;
+  background-size: cover;
+  z-index: 300;
 }
 
 .hero-container h1 {
-  font-size: 6.4rem;
+  font-size: 9rem;
   color: var(--header-color);
-  width: 45%;
+  color: white;
+  width: 80%;
+  text-shadow: 0px 0px 4px black;
+  text-align: center;
 }
 
 .hero-container p {
   font-size: 2.4rem;
-  width: 40%;
+  width: 60%;
+  color: white;
+  text-shadow: 0px 0px 4px rgb(0, 0, 0);
+  font-weight: bold;
+  text-align: center;
 }
-
+/* 
 .hero-container button {
   align-self: flex-start;
-}
+} */
 
 .offer-section {
   min-height: 30rem;
@@ -30,6 +43,8 @@
 .products-section {
   min-height: 30rem;
   padding: 5rem 0;
+  /* background-color: #984804; */
+  background-color: #2A4512;
 }
 
 .home-products {
@@ -48,6 +63,16 @@
   padding: 5rem 0;
 }
 
+.form-and-image-container {
+  display: flex;
+  /* border: 1px solid black; */
+  padding: 3rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  border-radius: 0.8rem;
+  /* flex-wrap: wrap; */
+}
+
 .contact-us-section form {
   display: flex;
   flex-direction: column;
@@ -61,13 +86,16 @@
   gap: 1rem;
 }
 
-.contact-us-section input {
+.contact-us-section input, textarea {
   padding: 1.6rem 2.4rem;
   font-size: 1.6rem;
+  border: 1px solid rgb(212, 211, 211);
+}
+
+.contact-us-section input:focus, textarea:focus {
+  outline-color: orange;
 }
 
 .contact-us-section textarea {
-  padding: 1.6rem 2.4rem;
   resize: none;
-  font-size: 1.6rem;
 }
