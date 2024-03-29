@@ -16,3 +16,9 @@
 .button:active {
   background-color: #0D2000;
 }
+
+.button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+

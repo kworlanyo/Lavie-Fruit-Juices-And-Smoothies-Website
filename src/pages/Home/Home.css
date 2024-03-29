@@ -4,31 +4,31 @@
   gap: 3rem;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 0 12rem;
-  background-image: linear-gradient(to right, rgb(255, 166, 0), rgba(255, 255, 255, 0)), url(../../assets/Hero1.svg);
+  /* align-items: center; */
+  padding: 0 20rem;
+  background-image: url(../../assets/Hero4.svg);
   background-repeat: no-repeat;
-  background-position: top 30px right;
-  background-size: cover;
-  z-index: 300;
+  background-position: right;
+  background-size: auto;
+  /* z-index: 300; */
 }
 
 .hero-container h1 {
-  font-size: 9rem;
+  font-size: 6.4rem;
   color: var(--header-color);
-  color: white;
-  width: 80%;
-  text-shadow: 0px 0px 4px black;
-  text-align: center;
+  /* color: white; */
+  width: 750px;
+  /* text-shadow: 0px 0px 4px black; */
+  /* text-align: center; */
 }
 
 .hero-container p {
   font-size: 2.4rem;
-  width: 60%;
-  color: white;
-  text-shadow: 0px 0px 4px rgb(0, 0, 0);
-  font-weight: bold;
-  text-align: center;
+  width: 700px;
+  /* color: white; */
+  /* text-shadow: 0px 0px 4px rgb(0, 0, 0); */
+  /* font-weight: bold; */
+  /* text-align: center; */
 }
 /* 
 .hero-container button {
@@ -38,14 +38,20 @@
 .offer-section {
   min-height: 30rem;
   padding: 5rem 0;
+  background-color: #984804;
+  color: white;
 }
 
 .products-section {
   min-height: 30rem;
   padding: 5rem 0;
   /* background-color: #984804; */
-  background-color: #2A4512;
+  /* background-color: #1a3f01 */
 }
+/* 
+.products-section h2 {
+  color: white;
+} */
 
 .home-products {
   display: flex;
@@ -56,6 +62,11 @@
 .testimonials-section {
   min-height: 30rem;
   padding: 5rem 0;
+  background-color: #984804;
+}
+
+.testimonials-section h2 {
+  color: white;
 }
 
 .contact-us-section {
@@ -90,6 +101,7 @@
   padding: 1.6rem 2.4rem;
   font-size: 1.6rem;
   border: 1px solid rgb(212, 211, 211);
+  font-family: inherit;
 }
 
 .contact-us-section input:focus, textarea:focus {

@@ -3,8 +3,28 @@
   margin-bottom: 8rem;
   /* border: 1px solid black; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
-  padding: 3rem;
+  /* padding: 3rem; */
   background-color: white;
+}
+
+.product-details-container .juice-image-container {
+  width: 100%;
+  height: 100%;
+  background-color: #F5CBAC;
+}
+
+.product-details-container .smoothie-image-container {
+  width: 100%;
+  height: 100%;
+  background-color: #DAE7C9;
+}
+
+.product-details-container img {
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+  vertical-align: top;
+  transform: translateX(-100px);
 }
 
 .product-details-container .details {
@@ -12,6 +32,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 2rem;
+  padding: 0 2rem;
 }
 
 .terms-and-conditions-container {
@@ -25,9 +46,9 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   /* margin-top: 2rem; */
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .customers-viewed-container div {

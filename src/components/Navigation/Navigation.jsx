@@ -8,6 +8,7 @@ function Navigation() {
   const {
     state: { cart },
   } = useContext(DataContext);
+
   return (
     <header>
       <nav className="navbar">
@@ -21,13 +22,13 @@ function Navigation() {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/shop/juices">Shop</NavLink>
+            <NavLink to="shop">Shop</NavLink>
           </li>
           <li>
-            <NavLink to="/about">About</NavLink>
+            <NavLink to="about">About</NavLink>
           </li>
           <li>
-            <NavLink to="/cart">
+            <NavLink to="cart">
               Cart {cart.length > 0 && <span>{cart.length}</span>}
             </NavLink>
           </li>

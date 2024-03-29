@@ -125,7 +125,7 @@ export const smoothies = [
     description:
       "Quench your thirst with our delightful mango and yoghurt smoothie! Made from 100% pure and organic fruits. Say goodbye to additives and preservatives, and hello to a refreshing drink that's as friendly to your taste buds as it is to your body.",
     volume: "5 litres",
-    price: 100,
+    price: 150,
   },
   {
     id: pawpawAndMilkSmoothieID,
@@ -135,7 +135,7 @@ export const smoothies = [
     description:
       "Quench your thirst with our delightful pawpaw and milk smoothie! Made from 100% pure and organic fruits. Say goodbye to additives and preservatives, and hello to a refreshing drink that's as friendly to your taste buds as it is to your body.",
     volume: "5 litres",
-    price: 100,
+    price: 150,
   },
   {
     id: bananaAvocadoAndYoghurtSmoothieID,
@@ -145,7 +145,7 @@ export const smoothies = [
     description:
       "Quench your thirst with our delightful banana, avocado and yoghurt smoothie! Made from 100% pure and organic fruits. Say goodbye to additives and preservatives, and hello to a refreshing drink that's as friendly to your taste buds as it is to your body.",
     volume: "5 litres",
-    price: 100,
+    price: 150,
   },
   {
     id: sweetAppleMangoAndYoghurtSmoothieID,
@@ -155,7 +155,7 @@ export const smoothies = [
     description:
       "Quench your thirst with our delightful sweet apple, mango and yoghurt smoothie! Made from 100% pure and organic fruits. Say goodbye to additives and preservatives, and hello to a refreshing drink that's as friendly to your taste buds as it is to your body.",
     volume: "5 litres",
-    price: 100,
+    price: 150,
   },
 ];
 

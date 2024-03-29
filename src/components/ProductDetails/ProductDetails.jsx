@@ -18,12 +18,22 @@ function ProductDetails() {
   return (
     <div>
       <div className="product-details-container">
-        <img
-          src={juiceToShowDetail?.image || smoothieToShowDetail?.image}
-          alt=""
-        />
+        <div
+          className={
+            juiceToShowDetail?.image
+              ? "juice-image-container"
+              : "smoothie-image-container"
+          }
+        >
+          <img
+            src={juiceToShowDetail?.image || smoothieToShowDetail?.image}
+            alt=""
+            width={400}
+            height={400}
+          />
+        </div>
         <div className="details">
-          <h2>{juiceToShowDetail?.name || smoothieToShowDetail?.name}</h2>
+          <h3>{juiceToShowDetail?.name || smoothieToShowDetail?.name}</h3>
           <p>
             {juiceToShowDetail?.description ||
               smoothieToShowDetail?.description}

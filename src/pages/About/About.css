@@ -18,9 +18,13 @@
 .about-content-container {
   width: 70%;
   margin: 0 auto;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  padding: 3rem;
+  background-color: white;
 }
 
 .about-content-container p {
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 1.5;
 }

@@ -27,6 +27,11 @@ body {
   margin: 5rem auto;
 }
 
+h2 {
+  font-size: 3.5rem;
+  margin-bottom: 2.4rem;
+}
+
 .outlet {
   margin: 5rem 0;
 }

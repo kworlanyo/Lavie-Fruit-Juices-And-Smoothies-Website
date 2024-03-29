@@ -137,6 +137,10 @@ function reducer(currentState, action) {
       };
     }
 
+    case "SUBMIT-ORDER": {
+      return initialState;
+    }
+
     default: {
       return currentState;
     }

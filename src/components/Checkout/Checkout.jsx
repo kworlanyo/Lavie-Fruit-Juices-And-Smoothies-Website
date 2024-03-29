@@ -1,6 +1,7 @@
 import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 import "./Checkout.css";
+import Button from "../Button/Button";
 // import Button from "./Button";
 
 function Checkout() {
@@ -140,41 +141,52 @@ function Checkout() {
             </form>
           </div>
           <div className="your-items-container">
-            <h2>Your Item(s)</h2>
-            {cart.map((item) => {
-              return (
-                <div key={item.id} className="checkout-items">
-                  <img src={item.image} alt="" width={200} />
-                  <div className="details">
-                    <p>Product: {item.name}</p>
-                    <p>Price: {item.price}</p>
-                    <p>Quantity: {item.quantity}</p>
-                    <h3>Total: ₵{item.price * item.quantity}.00</h3>
-                    <button
-                      onClick={() =>
-                        dispatch({ type: "DELETE-ITEM", payload: item.id })
-                      }
-                    >
-                      Delete Item
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-            <h2 className="grand-total">Grand Total: ₵{total.toFixed(2)} </h2>
-            <input
-              type="checkbox"
-              name="terms-and-conditions"
-              id="terms-and-conditions"
-              checked={termsAgreed}
-              onChange={() => dispatch({ type: "ACTIVATE-ORDER" })}
-            />
-            <label htmlFor="terms-and-conditions">
-              With your order, you agree to our terms and conditions of order.
-            </label>
-            <button disabled={!termsAgreed || !allInputsFilled}>
-              Place Order
-            </button>
+            {cart.length < 1 ? (
+              <h3>No items to checkout</h3>
+            ) : (
+              <>
+                <h2>Your Item(s)</h2>
+                {cart.map((item) => {
+                  return (
+                    <div key={item.id} className="checkout-items">
+                      <img src={item.image} alt="" width={200} />
+                      <div className="details">
+                        <p>Product: {item.name}</p>
+                        <p>Price: {item.price}</p>
+                        <p>Quantity: {item.quantity}</p>
+                        <h3>Total: ₵{item.price * item.quantity}.00</h3>
+                        <button
+                          onClick={() =>
+                            dispatch({ type: "DELETE-ITEM", payload: item.id })
+                          }
+                        >
+                          Delete Item
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+                <h2 className="grand-total">
+                  Grand Total: ₵{total.toFixed(2)}{" "}
+                </h2>
+                <input
+                  type="checkbox"
+                  name="terms-and-conditions"
+                  id="terms-and-conditions"
+                  checked={termsAgreed}
+                  onChange={() => dispatch({ type: "ACTIVATE-ORDER" })}
+                />
+                <label htmlFor="terms-and-conditions">
+                  With your order, you agree to our terms and conditions of
+                  order.
+                </label>
+                <Button
+                  content="Place Order"
+                  disabled={!termsAgreed || !allInputsFilled ? true : false}
+                  onClick={() => dispatch({ type: "SUBMIT-ORDER" })}
+                />
+              </>
+            )}
           </div>
         </div>
       </div>

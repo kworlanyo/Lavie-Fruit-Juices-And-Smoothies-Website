@@ -7,6 +7,7 @@ import "./ProductCard.css";
 /* eslint-disable react/prop-types */
 function ProductCard({ juice, smoothie }) {
   const { dispatch } = useContext(DataContext);
+
   // const [showModal, setShowModal] = useState(false);
   // const [modalContent, setModalContent] = useState("");
 
@@ -21,20 +22,24 @@ function ProductCard({ juice, smoothie }) {
       <div className="product-card" data-aos="zoom-in" data-aos-duration="1000">
         <Link
           to={
-            juice?.name
-              ? `/${juice.name}`
-              : smoothie?.name
-              ? `/${smoothie.name}`
+            juice
+              ? `/shop/juices/${juice.name}`
+              : smoothie
+              ? `/shop/smoothies/${smoothie.name}`
               : ""
           }
         >
-          <div className="image-container">
+          <div
+            className={
+              juice?.image ? "image-container" : "smoothie-image-container"
+            }
+          >
             <img src={juice?.image || smoothie?.image} alt="" />
           </div>
         </Link>
         <div className="details">
           <h3>{juice?.name || smoothie?.name}</h3>
-          <p>{juice?.ingredients || smoothie?.ingredients}</p>
+          {/* <p>{juice?.ingredients || smoothie?.ingredients}</p> */}
           <p>₵{juice?.price || smoothie?.price}.00</p>
           <button
             onClick={() =>

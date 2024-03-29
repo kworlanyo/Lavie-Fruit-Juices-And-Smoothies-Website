@@ -10,7 +10,7 @@ function CartItem({ item }) {
     <tr className="cart-item">
       <td className="product-image-and-name">
         <img src={item.image} alt="" width={200} />
-        <h2>{item.name}</h2>
+        <h3>{item.name}</h3>
       </td>
       <td>₵{item.price}.00</td>
       <td>

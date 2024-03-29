@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home/Home";
 import Shop from "./pages/Shop/Shop";
@@ -30,14 +30,16 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route element={<Shop />}>
-          <Route path="shop/juices" element={<Juices />} />
-          <Route path="shop/smoothies" element={<Smoothies />} />
-          <Route path=":name" element={<ProductDetails />} />
+        <Route path="shop" element={<Shop />}>
+          <Route index element={<Navigate replace to={"juices"} />} />
+          <Route path="juices" element={<Juices />} />
+          <Route path="juices/:name" element={<ProductDetails />} />
+          <Route path="smoothies" element={<Smoothies />} />
+          <Route path="smoothies/:name" element={<ProductDetails />} />
         </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="about" element={<About />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="checkout" element={<Checkout />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </Routes>

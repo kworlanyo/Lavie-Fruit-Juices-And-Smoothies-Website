@@ -48,8 +48,10 @@ function Footer() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="footer-bottom">
         <p>
-          Copyright &copy; {new Date().getFullYear()} Lavie Juice & Smoothies{" "}
+          Copyright &copy; {new Date().getFullYear()} Lavie Juice & Smoothies
         </p>
         <p>Designed & Developed by Worlanyo Kwabla Kporfeame</p>
       </div>
