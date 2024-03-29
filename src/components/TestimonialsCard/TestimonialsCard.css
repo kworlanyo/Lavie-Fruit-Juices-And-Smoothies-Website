@@ -2,8 +2,15 @@
   background-color: white;
   padding: 2.6rem;
   flex: 1;
-  border-radius: 0.8rem;
+  border-radius: var(--border-radius);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.185);
+  position: relative;
+}
+
+.testimonial-card .fruit {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .testimonial-card .top {
@@ -16,3 +23,4 @@
 .testimonial-card p {
   line-height: 1.5;
 }
+

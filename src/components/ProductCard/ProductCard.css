@@ -6,7 +6,7 @@
   overflow: hidden;
   position: relative;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.13);
-  border-radius: 0.8rem;
+  border-radius: var(--border-radius);
   background-color: white;
   gap: 2rem;
   /* flex: 1; */
@@ -80,10 +80,19 @@
 
 .product-card button {
   cursor: pointer;
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   font-size: 1.6rem;
   background-color: #FA6F06;
   color: white;
   border: none;
   border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.product-card button .cart-icon {
+  font-weight: 700;
+  font-size: 2.4rem;
+
 }

@@ -2,20 +2,11 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import "./ProductCard.css";
-// import Modal from "../Modal/Modal";
+import { BsCartPlus } from "react-icons/bs";
 
 /* eslint-disable react/prop-types */
 function ProductCard({ juice, smoothie }) {
   const { dispatch } = useContext(DataContext);
-
-  // const [showModal, setShowModal] = useState(false);
-  // const [modalContent, setModalContent] = useState("");
-
-  // const handleClick = () => {
-  //   setModalContent("Hello, this is a modal!");
-  //   setShowModal(true);
-  //   state.showModal(true);
-  // };
 
   return (
     <>
@@ -39,7 +30,6 @@ function ProductCard({ juice, smoothie }) {
         </Link>
         <div className="details">
           <h3>{juice?.name || smoothie?.name}</h3>
-          {/* <p>{juice?.ingredients || smoothie?.ingredients}</p> */}
           <p>₵{juice?.price || smoothie?.price}.00</p>
           <button
             onClick={() =>
@@ -49,6 +39,7 @@ function ProductCard({ juice, smoothie }) {
               })
             }
           >
+            <BsCartPlus className="cart-icon" />
             Add to Cart
           </button>
         </div>

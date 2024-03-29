@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import "./About.css";
-import aboutHero from "../../assets/about-hero.svg";
+import aboutHero from "../../assets/about-hero.png";
 
 function About() {
   return (

@@ -1,3 +1,7 @@
+.cart-item {
+  padding-right: 1rem;
+}
+
 .cart-page td {
   text-align: center;
 }
@@ -7,6 +11,18 @@
   align-items: center;
   justify-content: flex-start;
   text-align: left;
+}
+
+.cart-item .juice-image {
+  background-color: #F5CBAC;
+}
+
+.cart-item .smoothie-image {
+  background-color: #DAE7C9;
+}
+
+.cart-item h3 {
+  padding: 0 2rem;
 }
 
 .counter {
@@ -19,4 +35,11 @@
 
 .counter button {
   padding: 0.6rem;
+}
+
+.cart-item .delete-button {
+  font-size: 2.4rem;
+  vertical-align: bottom;
+  cursor: pointer;
+  color: rgb(172, 35, 35);;
 }

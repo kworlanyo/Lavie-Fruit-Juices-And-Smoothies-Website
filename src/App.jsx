@@ -9,13 +9,18 @@ import Juices from "./components/Juices/Juices";
 import Smoothies from "./components/Smoothies";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Checkout from "./components/Checkout/Checkout";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Modal from "./components/Modal/Modal";
+import { DataContext } from "./contexts/DataContext";
 
 function App() {
   // This code helps to go to the top of a page anytime its route is clicked
   const { pathname } = useLocation();
+  const { state, dispatch } = useContext(DataContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,22 +32,37 @@ function App() {
   }, []);
 
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="shop" element={<Shop />}>
-          <Route index element={<Navigate replace to={"juices"} />} />
-          <Route path="juices" element={<Juices />} />
-          <Route path="juices/:name" element={<ProductDetails />} />
-          <Route path="smoothies" element={<Smoothies />} />
-          <Route path="smoothies/:name" element={<ProductDetails />} />
+    <>
+      {state.showModal && (
+        <Modal
+          content={state.modalContent}
+          onClose={() => dispatch({ type: "HIDE-MODAL" })}
+          type={state.modalType}
+          onDelete={() =>
+            dispatch({ type: "DELETE-ITEM", payload: state.confirmItemId })
+          }
+          onDeleteAll={() => dispatch({ type: "DELETE-ALL" })}
+          onPlaceOrder={() => dispatch({ type: "PLACE-ORDER" })}
+        />
+      )}
+      <ToastContainer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="shop" element={<Shop />}>
+            <Route index element={<Navigate replace to={"juices"} />} />
+            <Route path="juices" element={<Juices />} />
+            <Route path="juices/:name" element={<ProductDetails />} />
+            <Route path="smoothies" element={<Smoothies />} />
+            <Route path="smoothies/:name" element={<ProductDetails />} />
+          </Route>
+          <Route path="about" element={<About />} />
+          <Route path="cart" element={<Cart />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route path="*" element={<PageNotFound />} />
         </Route>
-        <Route path="about" element={<About />} />
-        <Route path="cart" element={<Cart />} />
-        <Route path="checkout" element={<Checkout />} />
-        <Route path="*" element={<PageNotFound />} />
-      </Route>
-    </Routes>
+      </Routes>
+    </>
   );
 }
 

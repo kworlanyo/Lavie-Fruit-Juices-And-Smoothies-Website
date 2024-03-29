@@ -4,6 +4,7 @@ import CartItem from "../../components/CartItem/CartItem";
 import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 import "./Cart.css";
+import cartImg from "../../assets/cart.gif";
 
 function Cart() {
   const {
@@ -19,9 +20,10 @@ function Cart() {
     <div className="cart-page">
       <div className="wrapper">
         {cart.length < 1 ? (
-          <h2 className={cart.length < 1 && "empty-state"}>
-            There are no items in your cart.{" "}
-          </h2>
+          <div className={cart.length < 1 && "empty-state"}>
+            <img src={cartImg} alt="" width={300} />
+            <h2>There are no items in your cart.</h2>
+          </div>
         ) : (
           <>
             <div>
@@ -47,7 +49,7 @@ function Cart() {
               <h3>Total: ₵{total.toFixed(2)}</h3>
             </div>
             <Button
-              onClick={() => dispatch({ type: "DELETE-ALL" })}
+              onClick={() => dispatch({ type: "OPEN-MODAL-DELETE-ALL" })}
               content="Clear All"
             />
             <Button onClick={() => navigate("/checkout")} content="Checkout" />

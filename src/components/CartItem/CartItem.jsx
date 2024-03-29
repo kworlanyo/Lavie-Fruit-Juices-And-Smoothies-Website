@@ -1,15 +1,30 @@
 import { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
+import { RiDeleteBin6Line } from "react-icons/ri";
 import "./CartItem.css";
 
 /* eslint-disable react/prop-types */
 function CartItem({ item }) {
-  const { dispatch } = useContext(DataContext);
+  const { dispatch, juices, smoothies } = useContext(DataContext);
+
+  const juice = juices.find((juice) => juice.id === item.id);
+  const smoothie = smoothies.find((smoothie) => smoothie.id === item.id);
 
   return (
     <tr className="cart-item">
       <td className="product-image-and-name">
-        <img src={item.image} alt="" width={200} />
+        <img
+          className={
+            juice?.image
+              ? "juice-image"
+              : smoothie?.image
+              ? "smoothie-image"
+              : ""
+          }
+          src={item.image}
+          alt=""
+          width={200}
+        />
         <h3>{item.name}</h3>
       </td>
       <td>₵{item.price}.00</td>
@@ -28,14 +43,22 @@ function CartItem({ item }) {
           </button>
         </div>
       </td>
-      <td>₵{(item.price * item.quantity).toFixed(2)}</td>
       <td>
-        <button
+        <strong>₵{(item.price * item.quantity).toFixed(2)}</strong>
+      </td>
+      <td>
+        {/* <button
           className="delete-button"
           onClick={() => dispatch({ type: "DELETE-ITEM", payload: item.id })}
         >
           Delete
-        </button>
+        </button> */}
+        <RiDeleteBin6Line
+          className="delete-button"
+          onClick={() =>
+            dispatch({ type: "OPEN-MODAL-DELETE-ITEM", payload: item.id })
+          }
+        />
       </td>
     </tr>
   );

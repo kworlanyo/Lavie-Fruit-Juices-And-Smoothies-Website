@@ -17,6 +17,9 @@ import offer3 from "./src/assets/offer3.svg";
 import customer1 from "./src/assets/Ellipse1.svg";
 import customer2 from "./src/assets/Ellipse2.svg";
 import customer3 from "./src/assets/Ellipse3.svg";
+import fruit1 from "./src/assets/fruit1.svg";
+import fruit2 from "./src/assets/fruit2.svg";
+import fruit3 from "./src/assets/fruit3.svg";
 
 const orangeJuiceID = "d49f8a6b-4c65-4e05-97db-448ebf7b1a2a";
 const pineappleJuiceID = "99d77f86-5d17-4b29-b4d5-1f23fb2c6c4f";
@@ -180,6 +183,7 @@ export const offer = [
 export const testimonials = [
   {
     image: customer1,
+    fruit: fruit1,
     name: "Akosua Dankwa",
     timePosted: "2 weeks ago",
     comments:
@@ -187,6 +191,7 @@ export const testimonials = [
   },
   {
     image: customer2,
+    fruit: fruit2,
     name: "James Mensah",
     timePosted: "1 month ago",
     comments:
@@ -194,6 +199,7 @@ export const testimonials = [
   },
   {
     image: customer3,
+    fruit: fruit3,
     name: "Samuel Mawuli",
     timePosted: "2 months ago",
     comments:

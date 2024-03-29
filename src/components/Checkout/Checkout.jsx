@@ -2,6 +2,7 @@ import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 import "./Checkout.css";
 import Button from "../Button/Button";
+import { RiDeleteBin6Line } from "react-icons/ri";
 // import Button from "./Button";
 
 function Checkout() {
@@ -155,20 +156,23 @@ function Checkout() {
                         <p>Price: {item.price}</p>
                         <p>Quantity: {item.quantity}</p>
                         <h3>Total: ₵{item.price * item.quantity}.00</h3>
-                        <button
+
+                        <RiDeleteBin6Line
+                          className="delete-button"
                           onClick={() =>
-                            dispatch({ type: "DELETE-ITEM", payload: item.id })
+                            dispatch({
+                              type: "OPEN-MODAL-DELETE-ITEM",
+                              payload: item.id,
+                            })
                           }
-                        >
-                          Delete Item
-                        </button>
+                        />
                       </div>
                     </div>
                   );
                 })}
-                <h2 className="grand-total">
+                <h3 className="grand-total">
                   Grand Total: ₵{total.toFixed(2)}{" "}
-                </h2>
+                </h3>
                 <input
                   type="checkbox"
                   name="terms-and-conditions"
@@ -183,7 +187,8 @@ function Checkout() {
                 <Button
                   content="Place Order"
                   disabled={!termsAgreed || !allInputsFilled ? true : false}
-                  onClick={() => dispatch({ type: "SUBMIT-ORDER" })}
+                  onClick={() => dispatch({ type: "OPEN-MODAL-PLACE-ORDER" })}
+                  className="button"
                 />
               </>
             )}

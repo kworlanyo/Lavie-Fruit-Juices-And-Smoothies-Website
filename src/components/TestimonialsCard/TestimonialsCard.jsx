@@ -4,6 +4,7 @@ import "./TestimonialsCard.css";
 function TestimonialsCard({ testimonial }) {
   return (
     <div className="testimonial-card">
+      <img className="fruit" src={testimonial.fruit} alt="" />
       <div className="top">
         <img src={testimonial.image} alt="" />
         <div className="name-and-time">

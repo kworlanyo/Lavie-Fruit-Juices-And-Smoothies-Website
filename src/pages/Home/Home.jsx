@@ -74,7 +74,7 @@ function Home() {
                 <textarea
                   name="message"
                   cols="30"
-                  rows="10"
+                  rows="5"
                   placeholder="Write your message here..."
                 />
               </label>

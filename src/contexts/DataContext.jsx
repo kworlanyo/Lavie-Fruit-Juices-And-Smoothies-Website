@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useReducer } from "react";
 import { juices, smoothies, offer, testimonials } from "../../data";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+// import { toast } from "react-toastify";
+// import Modal from "../components/Modal/Modal";
 // import swal from "sweetalert"
 
 export const DataContext = createContext(null);
@@ -12,6 +14,9 @@ const initialState = {
   termsAgreed: false,
   showModal: false,
   modalContent: "",
+  modalType: "",
+  confirm: false,
+  confirmItemId: "",
   checkoutInputs: {
     firstName: "",
     lastName: "",
@@ -42,23 +47,33 @@ function reducer(currentState, action) {
         return {
           ...currentState,
           cart: [...currentState.cart, { ...itemToAdd, quantity: 1 }], // Add quantity field
+          showModal: true,
+          modalContent: `${itemToAdd?.name} has been added to the cart!`,
+          modalType: "cart",
         };
       } else {
-        // alert("Item is already in the cart");
-        Swal.fire({
-          title: "The Internet?",
-          text: "That thing is still around?",
-          icon: "question",
-        });
-        return currentState;
+        return {
+          ...currentState,
+          showModal: true,
+          modalContent: `${itemToAdd?.name} is already in cart!`,
+          modalType: "warn",
+        };
       }
     }
 
     case "DELETE-ITEM": {
-      if (confirm) {
+      const itemToRemove = currentState.cart.find(
+        (item) => item.id === action.payload
+      );
+
+      // Check if itemToRemove exists
+      if (itemToRemove) {
         return {
           ...currentState,
           cart: currentState.cart.filter((item) => item.id !== action.payload),
+          showModal: true,
+          modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
+          modalType: "confirm-delete",
         };
       } else {
         return currentState;
@@ -66,14 +81,21 @@ function reducer(currentState, action) {
     }
 
     case "DELETE-ALL": {
-      if (confirm("Are you sure you want to delete all items from the cart?")) {
-        return {
-          ...currentState,
-          cart: [],
-        };
-      } else {
-        return currentState;
-      }
+      // if (confirm("Are you sure you want to delete all items from the cart?")) {
+      //   return {
+      //     ...currentState,
+      //     cart: [],
+      //   };
+      // } else {
+      //   return currentState;
+      // }
+      return {
+        ...currentState,
+        cart: [], // Empty the cart when confirmed
+        showModal: false,
+        modalContent: "",
+        modalType: "",
+      };
     }
 
     case "INCREMENT": {
@@ -137,7 +159,54 @@ function reducer(currentState, action) {
       };
     }
 
-    case "SUBMIT-ORDER": {
+    case "HIDE-MODAL": {
+      return {
+        ...currentState,
+        showModal: false,
+        modalContent: "",
+      };
+    }
+
+    case "OPEN-MODAL-DELETE-ITEM": {
+      const itemToRemove = currentState.cart.find(
+        (item) => item.id === action.payload
+      );
+
+      // Check if itemToRemove exists
+      if (itemToRemove) {
+        return {
+          ...currentState,
+          showModal: true,
+          modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
+          modalType: "confirm-delete",
+          confirmItemId: action.payload, // Include item id as payload
+        };
+      } else {
+        return currentState; // Return current state if item to remove is not found
+      }
+    }
+
+    case "OPEN-MODAL-DELETE-ALL": {
+      return {
+        ...currentState,
+        showModal: true,
+        modalContent:
+          "Are you sure you want to delete all items from the cart?",
+        modalType: "confirm-delete-all",
+      };
+    }
+
+    case "OPEN-MODAL-PLACE-ORDER": {
+      return {
+        ...currentState,
+        showModal: true,
+        modalContent:
+          "Thank you for your order. We will contact you soon to confirm your order",
+        modalType: "place-order",
+      };
+    }
+
+    case "PLACE-ORDER": {
       return initialState;
     }
 
@@ -159,6 +228,12 @@ function DataContextProvider({ children }) {
       value={{ state, dispatch, offer, testimonials, juices, smoothies }}
     >
       {children}
+      {/* {state.showModal && (
+        <Modal
+          content={state.modalContent}
+          onClose={() => dispatch({ type: "HIDE-MODAL" })}
+        />
+      )} */}
     </DataContext.Provider>
   );
 }
