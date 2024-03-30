@@ -14,7 +14,7 @@ function Navigation() {
       <nav className="navbar">
         <div>
           <NavLink to="/">
-            <img src={Logo} alt="logo" width={150} />
+            <img src={Logo} alt="logo" width={120} />
           </NavLink>
         </div>
         <ul className="navbar-links">
