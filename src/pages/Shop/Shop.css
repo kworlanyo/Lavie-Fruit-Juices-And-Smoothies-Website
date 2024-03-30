@@ -33,3 +33,21 @@
   color: white;
   transition: all 0.5s;
 }
+
+@media (max-width: 900px) {
+  .shop-section .links {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-section .links {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .shop-section .links {
+    width: 100%;
+  }
+}
