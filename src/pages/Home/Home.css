@@ -169,10 +169,11 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1026px) {
   .hero-container {
     background-size: 800px;
     padding: 0 10rem;
+    min-height: 50vh;
   }
 
   .hero-container h1 {
@@ -226,6 +227,7 @@
   .hero-container {
     align-items: center;
     padding: 0 5rem;
+    min-height: 50vh;
   }
 
   .hero-container h1 {
