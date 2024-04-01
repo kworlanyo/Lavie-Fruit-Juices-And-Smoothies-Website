@@ -60,6 +60,7 @@ function ProductDetails() {
               })
             }
             content="Add to Cart"
+            className="button"
           />
         </div>
       </div>

@@ -14,13 +14,22 @@ function Footer() {
             <img src={Logo} width={120} alt="" />
             <div className="logos-container">
               <div className="facebook-container">
-                <img src={facebookLogo} alt="" />
+                <a
+                  href="https://www.facebook.com/worlanyo.kporfeame/"
+                  target="_blank"
+                >
+                  <img src={facebookLogo} alt="" />
+                </a>
               </div>
               <div className="instagram-container">
-                <img src={instagramLogo} alt="" />
+                <a href="https://www.instagram.com/worla_k/" target="_blank">
+                  <img src={instagramLogo} alt="" />
+                </a>
               </div>
               <div className="x-container">
-                <img src={Xlogo} alt="" />
+                <a href="https://twitter.com/Worlanyo29" target="_blank">
+                  <img src={Xlogo} alt="" />
+                </a>
               </div>
             </div>
           </div>
@@ -40,7 +49,7 @@ function Footer() {
                 Address: <span>2nd Street, Ashaiman - Accra, Ghana</span>
               </p>
               <p>
-                Email: <span>laviejuiceandsmoothies@gmail.com</span>
+                Email: <span>laviejuicesandsmoothies@gmail.com</span>
               </p>
               <p>
                 Call Us: <span>+233 242 900 465</span>
@@ -51,7 +60,7 @@ function Footer() {
       </div>
       <div className="footer-bottom">
         <p>
-          Copyright &copy; {new Date().getFullYear()} Lavie Juice & Smoothies
+          Copyright &copy; {new Date().getFullYear()} Lavie Juices & Smoothies
         </p>
         <p>Designed & Developed by Worlanyo Kwabla Kporfeame</p>
       </div>

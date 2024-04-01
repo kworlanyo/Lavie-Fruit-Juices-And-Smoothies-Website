@@ -22,3 +22,11 @@
   cursor: not-allowed;
 }
 
+@media (max-width: 768px) {
+  .button {
+    padding: 1.2rem 3rem;
+    font-size: 1.4rem;
+    min-width: 20rem;
+  }
+}
+

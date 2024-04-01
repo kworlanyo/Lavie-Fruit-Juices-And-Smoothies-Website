@@ -3,7 +3,7 @@ import Button from "../../components/Button/Button";
 import Offer from "../../components/Offer/Offer";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Testimonials from "../../components/Testimonials/Testimonials";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 import "./Home.css";
@@ -38,7 +38,10 @@ function Home() {
       </section>
       <section className="products-section">
         <div className="wrapper">
-          <h2>Products</h2>
+          <div className="products-header">
+            <h2>Products</h2>
+            <Link to="shop/juices">See all</Link>
+          </div>
           <div className="home-products">
             <ProductCard juice={juices[0]} />
             <ProductCard juice={juices[1]} />
@@ -78,7 +81,7 @@ function Home() {
                   placeholder="Write your message here..."
                 />
               </label>
-              <Button content="Submit" />
+              <Button className="button" content="Submit" />
             </form>
             <div
               className="image-container"

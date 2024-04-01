@@ -5,8 +5,8 @@
 
 .checkout-container {
   display: flex;
-  gap: 8rem;
-  flex-wrap: wrap;
+  gap: 4rem;
+  /* flex-wrap: wrap; */
 }
 
 .billing-address-container {
@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-  /* border: 1px solid black; */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
   padding: 3rem;
   background-color: white;
@@ -65,12 +64,11 @@
  
 }
 
-.your-items-container .checkout-items {
+/* .your-items-container .checkout-items {
   display: flex;
   margin-top: 2rem;
   align-items: center;
   margin-bottom: 1rem;
-  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.199); */
   border: 1px solid rgb(212, 211, 211);
   padding: 1rem;
   margin-bottom: 2rem;
@@ -83,14 +81,11 @@
 }
 
 .your-items-container .checkout-items .details .delete-button {
-  /* background-color: rgb(167, 46, 46); */
-  /* padding: 1rem 2rem; */
-  /* width: fit-content; */
   color: rgb(153, 46, 46);
   border: none;
   font-size: 2rem;
   cursor: pointer;
-}
+} */
 
 .your-items-container label {
   margin-left: 1rem;
@@ -105,4 +100,16 @@
   text-align: right;
   margin-bottom: 2rem;
  
+}
+
+@media (max-width: 1000px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 580px) {
+  .your-items-container {
+    padding: 1.6rem;
+  }
 }

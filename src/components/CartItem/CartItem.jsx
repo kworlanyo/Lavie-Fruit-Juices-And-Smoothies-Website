@@ -11,8 +11,8 @@ function CartItem({ item }) {
   const smoothie = smoothies.find((smoothie) => smoothie.id === item.id);
 
   return (
-    <tr className="cart-item">
-      <td className="product-image-and-name">
+    <div className="cart-item">
+      <div className="product-image-and-name">
         <img
           className={
             juice?.image
@@ -23,12 +23,41 @@ function CartItem({ item }) {
           }
           src={item.image}
           alt=""
-          width={200}
+          // width={200}
         />
-        <h3>{item.name}</h3>
-      </td>
-      <td>₵{item.price}.00</td>
-      <td>
+        <div className="description">
+          <h4>{item.name}</h4>
+          <RiDeleteBin6Line
+            className="delete-button"
+            onClick={() =>
+              dispatch({ type: "OPEN-MODAL-DELETE-ITEM", payload: item.id })
+            }
+          />
+        </div>
+      </div>
+      <div className="item-price">₵{item.price}.00</div>
+      <div className="counter">
+        <button
+          onClick={() => dispatch({ type: "DECREMENT", payload: item.id })}
+        >
+          -
+        </button>
+        <p>{item.quantity}</p>
+        <button
+          onClick={() => dispatch({ type: "INCREMENT", payload: item.id })}
+        >
+          +
+        </button>
+      </div>
+      <div className="total-price">
+        <strong>₵{(item.price * item.quantity).toFixed(2)}</strong>
+      </div>
+
+      <div className="mobile-style">
+        <div>
+          <h4>Price</h4>
+          <p>₵{item.price}.00</p>
+        </div>
         <div className="counter">
           <button
             onClick={() => dispatch({ type: "DECREMENT", payload: item.id })}
@@ -42,25 +71,22 @@ function CartItem({ item }) {
             +
           </button>
         </div>
-      </td>
-      <td>
-        <strong>₵{(item.price * item.quantity).toFixed(2)}</strong>
-      </td>
-      <td>
-        {/* <button
-          className="delete-button"
-          onClick={() => dispatch({ type: "DELETE-ITEM", payload: item.id })}
-        >
-          Delete
-        </button> */}
+        <div className="total-price">
+          <h4>Total</h4>
+          <p>
+            <strong>₵{(item.price * item.quantity).toFixed(2)}</strong>
+          </p>
+        </div>
+      </div>
+      {/* <td>
         <RiDeleteBin6Line
           className="delete-button"
           onClick={() =>
             dispatch({ type: "OPEN-MODAL-DELETE-ITEM", payload: item.id })
           }
         />
-      </td>
-    </tr>
+      </td> */}
+    </div>
   );
 }
 

@@ -3,7 +3,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 7rem;
+  min-height: 7rem;
   background-color: rgb(240, 240, 240);
   box-shadow: 0px 0px 10px rgba(161, 161, 161, 0.226);
   z-index: 10;
@@ -12,9 +12,14 @@ header {
 .navbar {
   display: flex;
   justify-content: space-between;
+  /* flex-wrap: wrap; */
   height: 100%;
   align-items: center;
   padding: 0 4rem;
+}
+
+.navbar img {
+  width: 120px;
 }
 
 .navbar-links {
@@ -38,7 +43,72 @@ header {
 }
 
 .navbar span {
-  padding: 0.2rem 1rem;
+  padding: 0.1rem 1rem;
   background-color: rgb(167, 36, 36);
+  border-radius: 50%;
   color: white;
+}
+
+.navbar .hamburger {
+  font-size: 3rem;
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-links-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 1.6rem;
+  }
+
+  .navbar img {
+    width: 90px;
+    vertical-align: bottom;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-links-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .navbar-links-mobile {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+    padding: 0 0 3rem 5rem;
+  }
+
+  .navbar-links-mobile a {
+    font-size: 1.8rem;
+    color: black;
+    text-decoration: none;
+    padding: 0 0.4rem 0.6rem;
+
+  }
+
+  .navbar-links-mobile a.active {
+    border-bottom: 5px solid #395f18;
+    color: #395f18;
+    font-weight: bold;
+  }
+
+  .navbar-links-mobile span {
+    padding: 0.2rem 1rem;
+    background-color: rgb(167, 36, 36);
+    color: white;
+    border-radius: 50%;
+  
+  }
+
+  .navbar .hamburger {
+    display: flex;
+  }
 }

@@ -57,6 +57,26 @@ footer .wrapper {
   display: flex;
   justify-content: space-between;
   padding: 1rem 19rem;
+  flex-wrap: wrap;
+  gap: 2rem;
   background-color: var(--primary-color);
   color: white;
+}
+
+
+
+@media (max-width: 1100px) {
+  .footer-bottom {
+    padding: 2rem 5rem;
+    font-size: 1.4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 476px) {
+  .footer-bottom p {
+    text-align: center;
+  }
 }

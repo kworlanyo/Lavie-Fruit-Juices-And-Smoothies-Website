@@ -2,7 +2,8 @@ import { DataContext } from "../../contexts/DataContext";
 import { useContext } from "react";
 import "./Checkout.css";
 import Button from "../Button/Button";
-import { RiDeleteBin6Line } from "react-icons/ri";
+import CheckoutItems from "../CheckoutItems/CheckoutItems";
+// import { RiDeleteBin6Line } from "react-icons/ri";
 // import Button from "./Button";
 
 function Checkout() {
@@ -34,7 +35,7 @@ function Checkout() {
         <div className="checkout-container">
           <div className="billing-address-container">
             <form>
-              <h2>Billing Details</h2>
+              <h3>Billing Details</h3>
               <label>
                 First Name*
                 <input
@@ -95,8 +96,8 @@ function Checkout() {
                   required
                 />
               </label>
-              <h2>Choose Payment Method</h2>
               <div className="payment-methods-container">
+                <h3>Choose Payment Method</h3>
                 <div className="bank-transfer-container">
                   <div className="radio-button">
                     <input
@@ -110,7 +111,7 @@ function Checkout() {
                     <label htmlFor="payment1">Bank Transfer</label>
                   </div>
                   <div>
-                    <h3>Please pay the money into our bank account</h3>
+                    <h4>Please pay the money into our bank account</h4>
                     <div>
                       <p>Lavie Juice & Smoothies</p>
                       <p>Stanbic Bank</p>
@@ -132,7 +133,7 @@ function Checkout() {
                     <label htmlFor="payment2">Mobile Money</label>
                   </div>
                   <div>
-                    <h3>Please pay the money into our Mobile Money Account:</h3>
+                    <h4>Please pay the money into our Mobile Money Account:</h4>
                     <div>
                       <p>MTN Momo: 0242171872</p>
                     </div>
@@ -146,11 +147,14 @@ function Checkout() {
               <h3>No items to checkout</h3>
             ) : (
               <>
-                <h2>Your Item(s)</h2>
+                <h3>Your Item(s)</h3>
                 {cart.map((item) => {
+                  return <CheckoutItems key={item.id} item={item} />;
+                })}
+                {/* {cart.map((item) => {
                   return (
                     <div key={item.id} className="checkout-items">
-                      <img src={item.image} alt="" width={200} />
+                      <img src={item.image} alt="" width={150} />
                       <div className="details">
                         <p>Product: {item.name}</p>
                         <p>Price: {item.price}</p>
@@ -169,7 +173,7 @@ function Checkout() {
                       </div>
                     </div>
                   );
-                })}
+                })} */}
                 <h3 className="grand-total">
                   Grand Total: ₵{total.toFixed(2)}{" "}
                 </h3>

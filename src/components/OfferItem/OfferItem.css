@@ -11,3 +11,9 @@
   text-align: center;
   font-size: 1.8rem;
 }
+
+@media (max-width: 768px) {
+  .offerItem-container p {
+    font-size: 1.4rem;
+  }
+}

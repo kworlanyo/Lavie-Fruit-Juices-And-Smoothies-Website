@@ -11,6 +11,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  width: 70px;
 }
 
 .testimonial-card .top {
@@ -22,5 +23,11 @@
 
 .testimonial-card p {
   line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .testimonial-card .fruit {
+    width: 60px;
+  }
 }
 

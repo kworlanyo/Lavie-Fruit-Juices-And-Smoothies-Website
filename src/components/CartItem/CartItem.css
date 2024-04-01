@@ -1,16 +1,27 @@
 .cart-item {
-  padding-right: 1rem;
+  /* padding-right: 1rem; */
+  box-shadow: 0px 0px 10px rgba(161, 158, 158, 0.425);
+  margin: 2rem 0 1rem;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+  gap: 2rem;
 }
 
-.cart-page td {
+/* .cart-page td {
   text-align: center;
-}
+} */
 
-.cart-page .product-image-and-name {
+.cart-item .product-image-and-name {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   text-align: left;
+  gap: 1rem;
+}
+
+.cart-item .product-image-and-name img {
+  width: 200px
 }
 
 .cart-item .juice-image {
@@ -21,25 +32,87 @@
   background-color: #DAE7C9;
 }
 
-.cart-item h3 {
-  padding: 0 2rem;
+.cart-item .other-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .counter {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 8rem;
-  margin: 0 auto;
+  width: 12rem;
+  border: 1px solid rgba(128, 128, 128, 0.575);
+  border-radius: 6px;
+  overflow: hidden;
+  /* gap: 2rem; */
+  /* margin: 0 auto; */
 }
 
 .counter button {
-  padding: 0.6rem;
+  padding: 1.4rem;
+  cursor: pointer;
+  border: none;
+  font-size: 2rem;
+}
+
+.counter button:active {
+  background-color: gray;
 }
 
 .cart-item .delete-button {
   font-size: 2.4rem;
   vertical-align: bottom;
   cursor: pointer;
-  color: rgb(172, 35, 35);;
+  color: rgb(172, 35, 35);
+}
+
+.cart-item .total-price {
+  justify-self: flex-end;
+  padding-right: 2rem;
+}
+
+.cart-item .mobile-style {
+  display: none;
+}
+
+@media (max-width: 870px) {
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 70%;
+    margin: 2rem auto;
+  }
+
+  .cart-item .product-image-and-name img {
+    width: 120px
+  }
+
+  .cart-item .mobile-style {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0 1rem 2rem;
+  }
+
+  .cart-item > .counter {
+    display: none;
+  }
+
+  .cart-item > .total-price {
+    display: none;
+  }
+
+  .cart-item > .item-price {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .cart-item {
+    width: 100%;
+  }
 }

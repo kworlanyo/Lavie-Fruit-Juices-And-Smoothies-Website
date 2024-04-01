@@ -26,9 +26,9 @@ function Cart() {
           </div>
         ) : (
           <>
-            <div>
+            <div className="cart-container">
               <h2>Your Cart</h2>
-              <table>
+              {/* <table>
                 <thead>
                   <tr>
                     <th>Product</th>
@@ -42,17 +42,39 @@ function Cart() {
                     <CartItem key={item.id} item={item} />
                   ))}
                 </tbody>
-              </table>
+              </table> */}
+              <div className="titles">
+                <h3 className="product-title">Product</h3>
+                <h3>Price</h3>
+                <h3>Quantity</h3>
+                <h3 className="total">Total</h3>
+              </div>
+              <div>
+                {cart.map((item) => (
+                  <CartItem key={item.id} item={item} />
+                ))}
+              </div>
             </div>
-            <div>
-              <h2>Cart Total</h2>
-              <h3>Total: ₵{total.toFixed(2)}</h3>
+            <div className="cart-summary">
+              <button
+                className="clear-cart"
+                onClick={() => dispatch({ type: "OPEN-MODAL-DELETE-ALL" })}
+              >
+                Clear Cart
+              </button>
+              <div className="cart-checkout">
+                <div className="total">
+                  <h3>Sub-total: </h3>
+                  <h3>₵{total.toFixed(2)}</h3>
+                </div>
+
+                <Button
+                  onClick={() => navigate("/checkout")}
+                  content="Checkout"
+                  className="checkout-button"
+                />
+              </div>
             </div>
-            <Button
-              onClick={() => dispatch({ type: "OPEN-MODAL-DELETE-ALL" })}
-              content="Clear All"
-            />
-            <Button onClick={() => navigate("/checkout")} content="Checkout" />
           </>
         )}
       </div>

@@ -49,6 +49,23 @@
   /* background-color: #984804; */
   /* background-color: #1a3f01 */
 }
+
+.products-section .products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+.products-section .products-header h2 {
+  margin-bottom: 0;
+}
+
+.products-section .products-header a {
+  font-size: 2rem;
+  color: #FA6F06;
+  display: inline-block;
+}
 /* 
 .products-section h2 {
   color: white;
@@ -175,10 +192,13 @@
   .hero-container {
     background-size: 600px;
     padding: 0 5rem;
+    min-height: 70vh;
   }
 
   .hero-container h1 {
     font-size: 4rem;
+    width: fit-content;
+    /* text-align: center; */
   }
 
   .hero-container p {
@@ -197,5 +217,30 @@
     display: none;
   }
 
+  .offer-section, .products-section, .testimonials-section, .contact-us-section {
+    padding: 1rem 0;
+  }
+}
 
+@media (max-width: 476px) {
+  .hero-container {
+    align-items: center;
+    padding: 0 5rem;
+  }
+
+  .hero-container h1 {
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-container p {
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-us-section .button {
+    width: 100%;
+  }
 }
