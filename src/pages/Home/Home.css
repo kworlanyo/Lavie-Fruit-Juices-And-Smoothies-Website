@@ -173,7 +173,7 @@
   .hero-container {
     background-size: 800px;
     padding: 0 10rem;
-    min-height: 50vh;
+    min-height: 100vh;
   }
 
   .hero-container h1 {
@@ -199,7 +199,6 @@
   .hero-container h1 {
     font-size: 4rem;
     width: fit-content;
-    /* text-align: center; */
   }
 
   .hero-container p {
@@ -208,10 +207,7 @@
   }
 
   .contact-us-section form {
-    /* display: flex;
-    flex-direction: column; */
     width: 100%;
-    /* gap: 1.8rem; */
   }
 
   .contact-us-section .image-container {
@@ -227,7 +223,7 @@
   .hero-container {
     align-items: center;
     padding: 0 5rem;
-    min-height: 50vh;
+    min-height: 100vh;
   }
 
   .hero-container h1 {
