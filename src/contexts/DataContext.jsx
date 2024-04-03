@@ -9,7 +9,6 @@ import { juices, smoothies, offer, testimonials } from "../../data";
 export const DataContext = createContext(null);
 
 const initialState = {
-  // counter: 1,
   cart: JSON.parse(localStorage.getItem("products")) || [],
   termsAgreed: false,
   showModal: false,
@@ -27,6 +26,13 @@ const initialState = {
     paymentMethod: "",
   },
   allInputsFilled: false,
+  contactsInputs: {
+    name: "",
+    email: "",
+    message: "",
+  },
+  showError: false,
+  showErrorCheckout: false,
 };
 
 function reducer(currentState, action) {
@@ -81,14 +87,6 @@ function reducer(currentState, action) {
     }
 
     case "DELETE-ALL": {
-      // if (confirm("Are you sure you want to delete all items from the cart?")) {
-      //   return {
-      //     ...currentState,
-      //     cart: [],
-      //   };
-      // } else {
-      //   return currentState;
-      // }
       return {
         ...currentState,
         cart: [], // Empty the cart when confirmed
@@ -203,11 +201,80 @@ function reducer(currentState, action) {
         modalContent:
           "Thank you for your order. We will contact you soon to confirm your order",
         modalType: "place-order",
+        checkoutInputs: {
+          firstName: "",
+          lastName: "",
+          town: "",
+          address: "",
+          phoneNumber: "",
+          email: "",
+          paymentMethod: "",
+        },
+        showErrorCheckout: false,
       };
     }
 
     case "PLACE-ORDER": {
       return initialState;
+    }
+
+    case "CONTACTS-INPUTS-CHANGE": {
+      return {
+        ...currentState,
+        contactsInputs: {
+          ...currentState.contactsInputs,
+          ...action.payload,
+        },
+      };
+    }
+
+    case "OPEN-MODAL-CONTACT-US": {
+      return {
+        ...currentState,
+        showModal: true,
+        modalContent: "Thank you for your message! 🙏",
+        modalType: "contact-message",
+      };
+    }
+
+    case "SUBMIT-MESSAGE": {
+      return {
+        ...currentState,
+        contactsInputs: {
+          name: "",
+          email: "",
+          message: "",
+        },
+        showError: false,
+      };
+    }
+
+    case "SHOW-ERROR": {
+      return {
+        ...currentState,
+        showError: true,
+      };
+    }
+
+    case "REMOVE-ERROR": {
+      return {
+        ...currentState,
+        showError: false,
+      };
+    }
+
+    case "SHOW-ERROR-CHECKOUT": {
+      return {
+        ...currentState,
+        showErrorCheckout: true,
+      };
+    }
+
+    case "REMOVE-ERROR-CHECKOUT": {
+      return {
+        ...currentState,
+        showErrorCheckout: false,
+      };
     }
 
     default: {
@@ -228,12 +295,6 @@ function DataContextProvider({ children }) {
       value={{ state, dispatch, offer, testimonials, juices, smoothies }}
     >
       {children}
-      {/* {state.showModal && (
-        <Modal
-          content={state.modalContent}
-          onClose={() => dispatch({ type: "HIDE-MODAL" })}
-        />
-      )} */}
     </DataContext.Provider>
   );
 }

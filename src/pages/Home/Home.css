@@ -123,6 +123,7 @@
   font-size: 1.6rem;
   border: 1px solid rgb(212, 211, 211);
   font-family: inherit;
+  border-radius: 0.6rem;
 }
 
 .contact-us-section input:focus, textarea:focus {

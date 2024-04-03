@@ -1,5 +1,5 @@
 import { DataContext } from "../../contexts/DataContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Checkout.css";
 import Button from "../Button/Button";
 import CheckoutItems from "../CheckoutItems/CheckoutItems";
@@ -8,7 +8,7 @@ import CheckoutItems from "../CheckoutItems/CheckoutItems";
 
 function Checkout() {
   const {
-    state: { cart, termsAgreed, checkoutInputs, allInputsFilled },
+    state: { cart, termsAgreed, checkoutInputs, showErrorCheckout },
     dispatch,
   } = useContext(DataContext);
 
@@ -26,6 +26,21 @@ function Checkout() {
       dispatch({ type: "ACTIVATE-ORDER-2" });
     }
   }
+
+  const values = Object.values(checkoutInputs);
+  function handleSubmit() {
+    if (values.includes("") || termsAgreed === false) {
+      dispatch({ type: "SHOW-ERROR-CHECKOUT" });
+    } else {
+      dispatch({ type: "OPEN-MODAL-PLACE-ORDER" });
+    }
+  }
+
+  useEffect(() => {
+    if (!values.includes("") && termsAgreed === true) {
+      dispatch({ type: "REMOVE-ERROR-CHECKOUT" });
+    }
+  });
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -151,29 +166,6 @@ function Checkout() {
                 {cart.map((item) => {
                   return <CheckoutItems key={item.id} item={item} />;
                 })}
-                {/* {cart.map((item) => {
-                  return (
-                    <div key={item.id} className="checkout-items">
-                      <img src={item.image} alt="" width={150} />
-                      <div className="details">
-                        <p>Product: {item.name}</p>
-                        <p>Price: {item.price}</p>
-                        <p>Quantity: {item.quantity}</p>
-                        <h3>Total: ₵{item.price * item.quantity}.00</h3>
-
-                        <RiDeleteBin6Line
-                          className="delete-button"
-                          onClick={() =>
-                            dispatch({
-                              type: "OPEN-MODAL-DELETE-ITEM",
-                              payload: item.id,
-                            })
-                          }
-                        />
-                      </div>
-                    </div>
-                  );
-                })} */}
                 <h3 className="grand-total">
                   Grand Total: ₵{total.toFixed(2)}{" "}
                 </h3>
@@ -188,10 +180,16 @@ function Checkout() {
                   With your order, you agree to our terms and conditions of
                   order.
                 </label>
+                {showErrorCheckout && (
+                  <p style={{ color: "red", marginTop: "2rem" }}>
+                    Please all inputs must be filled and terms and conditions
+                    accepted before placing order!
+                  </p>
+                )}
                 <Button
                   content="Place Order"
-                  disabled={!termsAgreed || !allInputsFilled ? true : false}
-                  onClick={() => dispatch({ type: "OPEN-MODAL-PLACE-ORDER" })}
+                  // disabled={!termsAgreed || !allInputsFilled ? true : false}
+                  onClick={handleSubmit}
                   className="button"
                 />
               </>

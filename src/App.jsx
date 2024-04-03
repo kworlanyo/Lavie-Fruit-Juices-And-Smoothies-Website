@@ -43,6 +43,7 @@ function App() {
           }
           onDeleteAll={() => dispatch({ type: "DELETE-ALL" })}
           onPlaceOrder={() => dispatch({ type: "PLACE-ORDER" })}
+          onSubmitMessage={() => dispatch({ type: "SUBMIT-MESSAGE" })}
         />
       )}
       <ToastContainer />

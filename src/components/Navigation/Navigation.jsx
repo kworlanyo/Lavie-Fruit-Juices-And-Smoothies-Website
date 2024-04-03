@@ -47,16 +47,22 @@ function Navigation() {
       {isOpen && (
         <ul className="navbar-links-mobile">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" onClick={handleOpen}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="shop">Shop</NavLink>
+            <NavLink to="shop" onClick={handleOpen}>
+              Shop
+            </NavLink>
           </li>
           <li>
-            <NavLink to="about">About</NavLink>
+            <NavLink to="about" onClick={handleOpen}>
+              About
+            </NavLink>
           </li>
           <li>
-            <NavLink to="cart">
+            <NavLink to="cart" onClick={handleOpen}>
               Cart {cart.length > 0 && <span>{cart.length}</span>}
             </NavLink>
           </li>

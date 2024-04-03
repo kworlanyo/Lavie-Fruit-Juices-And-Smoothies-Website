@@ -5,13 +5,42 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import Testimonials from "../../components/Testimonials/Testimonials";
 import { Link, useNavigate } from "react-router-dom";
 import { DataContext } from "../../contexts/DataContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import "./Home.css";
 import contactImage from "../../assets/contact-image.svg";
 
 function Home() {
-  const { juices } = useContext(DataContext);
+  const {
+    state: { contactsInputs, showError },
+    juices,
+    dispatch,
+  } = useContext(DataContext);
   const navigate = useNavigate();
+
+  function handleChange(e) {
+    dispatch({
+      type: "CONTACTS-INPUTS-CHANGE",
+      payload: { [e.target.name]: e.target.value },
+    });
+  }
+
+  const inputsValues = Object.values(contactsInputs);
+  function handleSubmitMessage(e) {
+    e.preventDefault();
+
+    if (inputsValues.includes("")) {
+      dispatch({ type: "SHOW-ERROR" });
+    } else {
+      dispatch({ type: "OPEN-MODAL-CONTACT-US" });
+      dispatch({ type: "SUBMIT-MESSAGE" });
+    }
+  }
+
+  useEffect(() => {
+    if (!inputsValues.includes("")) {
+      dispatch({ type: "REMOVE-ERROR" });
+    }
+  });
 
   return (
     <div>
@@ -61,27 +90,49 @@ function Home() {
           <div className="form-and-image-container">
             <form data-aos="fade-right" data-aos-duration="1000">
               <label>
-                Name
-                <input type="text" name="name" placeholder="Enter your name" />
+                Name*
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={contactsInputs.name}
+                  onChange={handleChange}
+                  required
+                />
               </label>
               <label>
-                Email Address
+                Email Address*
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your email address"
+                  value={contactsInputs.email}
+                  onChange={handleChange}
+                  required
                 />
               </label>
               <label>
-                Message
+                Message*
                 <textarea
                   name="message"
                   cols="30"
                   rows="5"
                   placeholder="Write your message here..."
+                  value={contactsInputs.message}
+                  onChange={handleChange}
+                  required
                 />
               </label>
-              <Button className="button" content="Submit" />
+              {showError && (
+                <p style={{ color: "red" }}>
+                  Please all inputs must filled before submitting the form!
+                </p>
+              )}
+              <Button
+                className="button"
+                content="Submit"
+                onClick={handleSubmitMessage}
+              />
             </form>
             <div
               className="image-container"

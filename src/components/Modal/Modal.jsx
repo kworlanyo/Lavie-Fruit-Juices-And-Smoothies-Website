@@ -14,6 +14,7 @@ function Modal({
   onDelete,
   onDeleteAll,
   onPlaceOrder,
+  onSubmitMessage,
 }) {
   const navigate = useNavigate();
   const handleDelete = () => {
@@ -50,6 +51,8 @@ function Modal({
               ? trash
               : type === "confirm-delete-all"
               ? trash
+              : type === "contact-message"
+              ? success
               : null
           }
           alt=""
@@ -76,7 +79,12 @@ function Modal({
           type === "confirm-delete" ||
           type === "confirm-delete-all" ||
           type === "place-order"
-        ) && <IoMdCloseCircle className="close-button" onClick={onClose} />}
+        ) && (
+          <IoMdCloseCircle
+            className="close-button"
+            onClick={onClose || onSubmitMessage}
+          />
+        )}
       </div>
     </div>
   );

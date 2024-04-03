@@ -12,6 +12,7 @@ function ProductCard({ juice, smoothie }) {
     <>
       <div className="product-card" data-aos="zoom-in" data-aos-duration="1000">
         <Link
+          className="image-link"
           to={
             juice
               ? `/shop/juices/${juice.name}`
@@ -31,17 +32,33 @@ function ProductCard({ juice, smoothie }) {
         <div className="details">
           <h3>{juice?.name || smoothie?.name}</h3>
           <p>₵{juice?.price || smoothie?.price}.00</p>
-          <button
-            onClick={() =>
-              dispatch({
-                type: "ADD-TO-CART",
-                payload: { juice: juice?.id, smoothie: smoothie?.id },
-              })
-            }
-          >
-            <BsCartPlus className="cart-icon" />
-            Add to Cart
-          </button>
+          <div className="buttons-container">
+            <button
+              className="add-to-cart-button"
+              onClick={() =>
+                dispatch({
+                  type: "ADD-TO-CART",
+                  payload: { juice: juice?.id, smoothie: smoothie?.id },
+                })
+              }
+            >
+              <BsCartPlus className="cart-icon" />
+              Add to Cart
+            </button>
+
+            <Link
+              className="view-details-button"
+              to={
+                juice
+                  ? `/shop/juices/${juice.name}`
+                  : smoothie
+                  ? `/shop/smoothies/${smoothie.name}`
+                  : ""
+              }
+            >
+              View Details
+            </Link>
+          </div>
         </div>
       </div>
     </>
