@@ -67,6 +67,44 @@ function reducer(currentState, action) {
       }
     }
 
+    // case "DELETE-ITEM": {
+    //   const itemToRemove = currentState.cart.find(
+    //     (item) => item.id === action.payload
+    //   );
+
+    //   // Check if itemToRemove exists
+    //   if (itemToRemove) {
+    //     return {
+    //       ...currentState,
+    //       cart: currentState.cart.filter((item) => item.id !== action.payload),
+    //       showModal: true,
+    //       modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
+    //       modalType: "confirm-delete",
+    //     };
+    //   } else if (currentState.cart.indexOf(itemToRemove) === 0) {
+    //     return {
+    //       ...currentState,
+    //       cart: currentState.cart.filter((item) => item.id !== action.payload),
+    //       showModal: true,
+    //       modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
+    //       modalType: "confirm-delete",
+    //       termsAgreed: false,
+    //       showErrorCheckout: false,
+    //       checkoutInputs: {
+    //         firstName: "",
+    //         lastName: "",
+    //         town: "",
+    //         address: "",
+    //         phoneNumber: "",
+    //         email: "",
+    //         paymentMethod: "",
+    //       },
+    //     };
+    //   } else {
+    //     return currentState;
+    //   }
+    // }
+
     case "DELETE-ITEM": {
       const itemToRemove = currentState.cart.find(
         (item) => item.id === action.payload
@@ -74,13 +112,40 @@ function reducer(currentState, action) {
 
       // Check if itemToRemove exists
       if (itemToRemove) {
-        return {
-          ...currentState,
-          cart: currentState.cart.filter((item) => item.id !== action.payload),
-          showModal: true,
-          modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
-          modalType: "confirm-delete",
-        };
+        const updatedCart = currentState.cart.filter(
+          (item) => item.id !== action.payload
+        );
+
+        if (updatedCart.length === 0) {
+          // Reset checkout form and related state if no items are left in the cart
+          return {
+            ...currentState,
+            cart: updatedCart,
+            showModal: true,
+            modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
+            modalType: "confirm-delete",
+            termsAgreed: false,
+            showErrorCheckout: false,
+            checkoutInputs: {
+              firstName: "",
+              lastName: "",
+              town: "",
+              address: "",
+              phoneNumber: "",
+              email: "",
+              paymentMethod: "",
+            },
+          };
+        } else {
+          // If there are still items in the cart, update the cart state
+          return {
+            ...currentState,
+            cart: updatedCart,
+            showModal: true,
+            modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
+            modalType: "confirm-delete",
+          };
+        }
       } else {
         return currentState;
       }
