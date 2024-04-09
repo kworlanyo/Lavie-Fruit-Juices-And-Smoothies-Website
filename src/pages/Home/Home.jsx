@@ -125,7 +125,8 @@ function Home() {
               </label>
               {showError && (
                 <p style={{ color: "red" }}>
-                  Please all inputs must filled before submitting the form!
+                  Kindly ensure all fields are filled out before submitting the
+                  form. Thank you!
                 </p>
               )}
               <Button

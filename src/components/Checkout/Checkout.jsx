@@ -180,8 +180,9 @@ function Checkout() {
                 </label>
                 {showErrorCheckout && (
                   <p style={{ color: "red", marginTop: "2rem" }}>
-                    Please all inputs must be filled and terms and conditions
-                    accepted before placing order!
+                    Kindly ensure all fields are filled in the billing details
+                    and that you have accepted the terms and conditions before
+                    proceeding to place your order. Thank you!
                   </p>
                 )}
                 <Button

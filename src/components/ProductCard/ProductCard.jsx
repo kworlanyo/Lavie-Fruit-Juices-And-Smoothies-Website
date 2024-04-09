@@ -10,7 +10,12 @@ function ProductCard({ juice, smoothie }) {
 
   return (
     <>
-      <div className="product-card" data-aos="zoom-in" data-aos-duration="1000">
+      <div
+        className="product-card"
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        title={juice ? juice.name : smoothie.name}
+      >
         <Link
           className="image-link"
           to={

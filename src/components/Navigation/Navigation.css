@@ -1,12 +1,13 @@
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
-  height: 7rem;
+  min-height: 7rem;
   background-color: rgb(240, 240, 240);
   box-shadow: 0px 0px 10px rgba(161, 161, 161, 0.226);
   z-index: 10;
+  
 }
 
 .navbar {
@@ -81,7 +82,11 @@ header {
     display: flex;
     gap: 4rem;
     list-style: none;
-    padding: 0 0 3rem 5rem;
+    padding: 1rem 0 3rem 5rem;
+    position: fixed;
+    top: 7rem;
+    background-color: rgb(240, 240, 240);
+    width: 100%;
   }
 
   .navbar-links-mobile a {

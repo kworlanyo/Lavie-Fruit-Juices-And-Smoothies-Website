@@ -64,12 +64,17 @@
   gap: 1rem;
   transition: all 0.3s;
   width: 100%;
+  /* padding: 2rem; */
 }
 
 .product-card .details h3 {
   text-align: center;
   font-size: 1.8rem;
-  padding: 0 1rem;
+  padding: 0 1.4rem;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .product-card .buttons-container {
