@@ -1,10 +1,6 @@
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useReducer } from "react";
 import { juices, smoothies, offer, testimonials } from "../../data";
-// import Swal from "sweetalert2";
-// import { toast } from "react-toastify";
-// import Modal from "../components/Modal/Modal";
-// import swal from "sweetalert"
 
 export const DataContext = createContext(null);
 
@@ -66,44 +62,6 @@ function reducer(currentState, action) {
         };
       }
     }
-
-    // case "DELETE-ITEM": {
-    //   const itemToRemove = currentState.cart.find(
-    //     (item) => item.id === action.payload
-    //   );
-
-    //   // Check if itemToRemove exists
-    //   if (itemToRemove) {
-    //     return {
-    //       ...currentState,
-    //       cart: currentState.cart.filter((item) => item.id !== action.payload),
-    //       showModal: true,
-    //       modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
-    //       modalType: "confirm-delete",
-    //     };
-    //   } else if (currentState.cart.indexOf(itemToRemove) === 0) {
-    //     return {
-    //       ...currentState,
-    //       cart: currentState.cart.filter((item) => item.id !== action.payload),
-    //       showModal: true,
-    //       modalContent: `Are you sure you want to remove ${itemToRemove?.name} from the cart?`,
-    //       modalType: "confirm-delete",
-    //       termsAgreed: false,
-    //       showErrorCheckout: false,
-    //       checkoutInputs: {
-    //         firstName: "",
-    //         lastName: "",
-    //         town: "",
-    //         address: "",
-    //         phoneNumber: "",
-    //         email: "",
-    //         paymentMethod: "",
-    //       },
-    //     };
-    //   } else {
-    //     return currentState;
-    //   }
-    // }
 
     case "DELETE-ITEM": {
       const itemToRemove = currentState.cart.find(

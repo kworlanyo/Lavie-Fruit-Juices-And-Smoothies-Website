@@ -1,10 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import "./ProductCard.css";
 import { BsCartPlus } from "react-icons/bs";
 
-/* eslint-disable react/prop-types */
 function ProductCard({ juice, smoothie }) {
   const { dispatch } = useContext(DataContext);
 

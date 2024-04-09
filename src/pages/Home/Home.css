@@ -1,20 +1,16 @@
 .hero-container {
   min-height: 100vh;
   width: 100%;
-  /* max-width: 4000px; */
   margin: 0 auto;
   display: flex;
   gap: 3rem;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   padding: 0 20rem;
   background-image: url(../../assets/Hero5.svg);
   background-repeat: no-repeat;
   background-position: right;
   background-size: auto;
-  /* z-index: 300; */
-  /* background-color: blue; */
 }
 
 .hero-container h1 {
@@ -22,8 +18,6 @@
   color: var(--header-color);
   color: rgb(43, 43, 43);
   width: 750px;
-  /* text-shadow: 0px 0px 4px black; */
-  /* text-align: center; */
 }
 
 .hero-container p {
@@ -31,10 +25,6 @@
   width: 40%;
   text-shadow: 2px 2px 1px rgb(240, 240, 240);
 }
-/* 
-.hero-container button {
-  align-self: flex-start;
-} */
 
 .offer-section {
   min-height: 30rem;
@@ -46,8 +36,6 @@
 .products-section {
   min-height: 30rem;
   padding: 5rem 0;
-  /* background-color: #984804; */
-  /* background-color: #1a3f01 */
 }
 
 .products-section .products-header {
@@ -66,10 +54,6 @@
   color: #FA6F06;
   display: inline-block;
 }
-/* 
-.products-section h2 {
-  color: white;
-} */
 
 .home-products {
   display: grid;
@@ -95,13 +79,11 @@
 
 .form-and-image-container {
   display: flex;
-  /* border: 1px solid black; */
   padding: 3rem;
   align-items: center;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
   border-radius: 0.8rem;
-  /* flex-wrap: wrap; */
   position: relative;
 }
 

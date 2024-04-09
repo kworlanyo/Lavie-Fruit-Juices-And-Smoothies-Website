@@ -5,7 +5,6 @@
 
 .about-hero-container {
   width: 100%;
-  /* min-height: 80vh; */
 }
 
 .about-hero-container img {
@@ -36,7 +35,6 @@
 
 @media (max-width: 576px) {
   .about-section {
-    /* min-height: 100vh; */
     padding: 1rem 0;
   }
 

@@ -28,21 +28,6 @@ function Cart() {
           <>
             <div className="cart-container">
               <h2>Your Cart</h2>
-              {/* <table>
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cart.map((item) => (
-                    <CartItem key={item.id} item={item} />
-                  ))}
-                </tbody>
-              </table> */}
               <div className="titles">
                 <h3 className="product-title">Product</h3>
                 <h3>Price</h3>

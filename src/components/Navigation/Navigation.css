@@ -12,7 +12,6 @@ header {
 .navbar {
   display: flex;
   justify-content: space-between;
-  /* flex-wrap: wrap; */
   height: 100%;
   align-items: center;
   padding: 0 4rem;
@@ -33,7 +32,6 @@ header {
   color: black;
   text-decoration: none;
   padding: 0 0.4rem 0.6rem;
-
 }
 
 .navbar-links a.active {
@@ -91,7 +89,6 @@ header {
     color: black;
     text-decoration: none;
     padding: 0 0.4rem 0.6rem;
-
   }
 
   .navbar-links-mobile a.active {
@@ -105,7 +102,6 @@ header {
     background-color: rgb(167, 36, 36);
     color: white;
     border-radius: 50%;
-  
   }
 
   .navbar .hamburger {

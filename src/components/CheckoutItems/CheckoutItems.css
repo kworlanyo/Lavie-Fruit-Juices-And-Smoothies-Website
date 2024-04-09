@@ -3,15 +3,11 @@
   margin-top: 2rem;
   align-items: center;
   margin-bottom: 1rem;
-  /* border: 1px solid rgb(212, 211, 211); */
-  /* padding: 1rem; */
   margin-bottom: 2rem;
-  /* gap: 2rem; */
 }
 
 .checkout-items .image-container {
   flex: 1;
-  /* width: 60rem; */
 }
 
 .checkout-items .juice-image {

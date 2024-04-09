@@ -77,7 +77,6 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 2rem;
-  /* width: 100%; */
 }
 
 .product-card button {
@@ -91,7 +90,6 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  
 }
 
 .product-card .view-details-button {
@@ -102,5 +100,4 @@
 .product-card button .cart-icon {
   font-weight: 700;
   font-size: 2.4rem;
-
 }

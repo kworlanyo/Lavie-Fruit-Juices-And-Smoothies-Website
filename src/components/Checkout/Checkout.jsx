@@ -3,8 +3,6 @@ import { useContext, useEffect } from "react";
 import "./Checkout.css";
 import Button from "../Button/Button";
 import CheckoutItems from "../CheckoutItems/CheckoutItems";
-// import { RiDeleteBin6Line } from "react-icons/ri";
-// import Button from "./Button";
 
 function Checkout() {
   const {

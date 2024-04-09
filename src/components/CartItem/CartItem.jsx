@@ -1,9 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useContext } from "react";
 import { DataContext } from "../../contexts/DataContext";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import "./CartItem.css";
 
-/* eslint-disable react/prop-types */
 function CartItem({ item }) {
   const { dispatch, juices, smoothies } = useContext(DataContext);
 
@@ -23,7 +23,6 @@ function CartItem({ item }) {
           }
           src={item.image}
           alt=""
-          // width={200}
         />
         <div className="description">
           <h4>{item.name}</h4>
@@ -78,14 +77,6 @@ function CartItem({ item }) {
           </p>
         </div>
       </div>
-      {/* <td>
-        <RiDeleteBin6Line
-          className="delete-button"
-          onClick={() =>
-            dispatch({ type: "OPEN-MODAL-DELETE-ITEM", payload: item.id })
-          }
-        />
-      </td> */}
     </div>
   );
 }

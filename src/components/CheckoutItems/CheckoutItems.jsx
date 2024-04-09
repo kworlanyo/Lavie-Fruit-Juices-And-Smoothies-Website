@@ -15,7 +15,6 @@ function CheckoutItems({ item }) {
         <img
           src={item.image}
           alt=""
-          // width={100}
           className={
             juice?.image
               ? "juice-image"
