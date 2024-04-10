@@ -45,6 +45,7 @@ function Checkout() {
   return (
     <div className="checkout-section">
       <div className="wrapper">
+        <h2>Checkout</h2>
         <div className="checkout-container">
           <div className="billing-address-container">
             <form>

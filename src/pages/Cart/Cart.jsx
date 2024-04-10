@@ -54,7 +54,7 @@ function Cart() {
                 </div>
 
                 <Button
-                  onClick={() => navigate("/checkout")}
+                  onClick={() => navigate("/cart/checkout")}
                   content="Checkout"
                   className="checkout-button"
                 />

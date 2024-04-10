@@ -58,8 +58,10 @@ function App() {
             <Route path="smoothies/:name" element={<ProductDetails />} />
           </Route>
           <Route path="about" element={<About />} />
-          <Route path="cart" element={<Cart />} />
-          <Route path="checkout" element={<Checkout />} />
+          <Route path="cart">
+            <Route index element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>
